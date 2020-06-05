@@ -1,0 +1,171 @@
+---
+title: "LA's BEST R Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Note to self: run with command rmarkdown::run("R_tutorial.Rmd") (must be in wd)
+
+
+## Data Frames
+
+**Data frame:** A data frame is a list of vectors which are of equal length. A matrix contains only one type of data, while a data frame accepts different data types (numeric, character, factor, etc.). (guru99)
+
+### Creating a data frame 
+
+Run the following code to create and print a data frame:
+
+```{r dfs, exercise=TRUE, exercise.completion=T}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+df
+```
+
+### Naming columns 
+
+The following code renames the columns as:
+1. a <- cat
+2. b <- dog
+3. c <- mouse
+4. d <- sheep
+
+Edit the code so that the names make sense with the data:
+
+```{r df_create, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+```
+
+```{r dfs_name, exercise=TRUE, exercise.setup="df_create"}
+names(df) <- c("cat", "dog", "mouse", "sheep")
+df
+```
+
+```{r dfs_name-solution}
+names(df) <- c("ID", "items", "in-store", "price")
+df
+```
+
+
+### Selecting rows and columns
+
+We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee `df` with the code `df[1,2]` which will select row 1 and column 2 of the data frame.
+
+Print out the third row of the price column:
+```{r df_create2, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r object_select, exercise=TRUE, exercise.setup="df_create2"}
+
+```
+
+```{r object_select-solution}
+df[3, 3]
+```
+
+You can also select the first entire row with `df[1, ]` or the entire first column with `df[ , 1]`. You can also select columns by their name and the `$` notation.
+
+Change the following code to select the items column:
+```{r df_create3, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r column_select, exercise=TRUE, exercise.setup="df_create3"}
+df$price
+```
+
+```{r column_select-solution}
+df$items
+```
+
+
+### Append a column
+
+After we create a data frame, we can add a new column. We do this by creating a vector and then appending it to the end of the data frame.
+
+The following code creates a vector called "quantity" and adds it to the data frame as a column. Add to this code to create a vector called "student" which contains true/false values:
+
+```{r df_create4, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r newcolumn, exercise=TRUE, exercise.eval=TRUE, exercise.setup="df_create4"}
+# Create a new vector
+quantity <- c(10, 35, 40, 5)
+
+# Add `quantity` to the `df` data frame
+df$quantity <- quantity
+df
+```
+
+```{r newcolumn-solution}
+# Create a new vector
+quantity <- c(10, 35, 40, 5)
+
+# Add `quantity` to the `df` data frame
+df$quantity <- quantity
+df
+
+student <- c(T, F, T, F)
+df$student <- student
+df
+```
+
+### Quiz
+
+```{r quiz}
+quiz(
+  question("Choose all that apply. How can I select the second column (named bp) of a data frame?",
+    answer("df$bp", correct=T),
+    answer("df[2, ]"),
+    answer("df[ , 2]", correct=T),
+    answer("df[2, 2]")
+  )
+)
+```
+
