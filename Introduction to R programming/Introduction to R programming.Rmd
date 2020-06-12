@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R Programming"
-author: Yinqi Zhao (yinqiz@usc.edu)
+author: Yinqi Zhao (yinqiz@usc.edu), Katelyn Queen
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -20,6 +20,39 @@ R is a high-level computer language developed by Ross Ihaka and Robert Gentleman
 
 This tutorial will cover the basic stuff of R for beginners of diverse background. Don't worry, no prior knowledge is required to learn R. R is not hard and full of fun!
 
+## Get started with Rstudio
+Rstudio is the most popular Integrated Development Environment (IDE) of R. It is a software application which allows the user to use R language in more a user-friendly manner. A typical Rstudio interface looks like this:
+
+![An exmaple of Rstudio User Interface](images/Rstudio interface.png){width=600px}
+
+It can be divided into 4 working area:
+
+* A: R script. This is the area where you keep the code of your work. It is the same as the `.do` files in STATA. It is suggested to write the code in the script and then test the code in R. To create a new R script, you can go to the menu bar and select `File -> New File -> R script`. Don't forget to save the chages once you modified the codes in your script.
+* C: Console. This tab is exactly the same as you directly open the R software installed on your computer. It executes the codes written in the R script and display the messages the codes return. For example, if we type `print("Hello World")` in the script, select the codes and click the `Run` button, the console will display the selected codes along with their output. The shortcut for running selected codes is `Command + Return` in Mac and `Ctrl + Enter` in Windows.
+![](images/console.png){width=400px}
+* B: Workspace tab. This area store all the objects (values, model, data and etc...) that you've created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the workspace tab. You can click the rectangle button in the circle to view the data in a new data editor.
+![](images/workspace.png){width=600px}
+* D: This tab provides with several functions. The `Files` tab allow you to browse files and read in data. The `Plots` tab display the graphs you created in R. ![Plots](images/plot.png){width=300px} 
+
+`Packages` let you install and load various `R package` to assist your analysis. Note that you can only use a package after you load it into your workspace. To load a package, type `library(pakcage.name)` in the cosole or simple check the box in the `Packages` tab.
+
+![Packeges](images/package.png){width=300px}
+
+If you need any help, click the `Help` tab and search for help documentation in the search box. Or you can directly type `?` before the function to open the help file. For example, if you want to know more about the `mean` function, run `?mean` in the console tab.
+
+![Help](images/help.png){width=300px}
+
+Lastly, the `Viewer` tab displays the `html` files in your local computer or returned by R. Below is an interactive graph produced by R in a html file.
+
+![Viewer](images/viewer.png){width=300px}
+
+### A Little More About Packages
+`R package` is a collection of codes, data and documentation which is shareable among R users. It is one of the most attractive properties of R. You can regard them as add-ons to R which makes R more powerful to deal with more challenging tasks. R developers publish their packages on several repository website. The most commonly used website is `CRAN`, which is built in with base R. Currently, `CRAN` stores more than 15,000 packages. To install packages directly from `CRAN`, simply type the folloing codes in the console,
+```{r eval=FALSE}
+install.packages("package name") # just put in the package name you want to install in the quotation mark
+```
+
+Other famous websites are `github` and `bioconductor`. To learn more about installing packages from these two repositories, please refer to [install packages from github](https://www.displayr.com/installing-r-packages-from-github/) and [install packages from bioconductor](https://www.bioconductor.org/install/).
 
 ## Basic Command
 
@@ -77,14 +110,169 @@ b > c
 
 
 ## Play with Data
-### 1. Data input
+### Data input
 Importing data into R is fairly simple. `.csv` files are the most commonly used data type in R. To input such file, we use the built-in function `read.csv`. For files with extension `.txt`, try another generic function `read.table`. 
 
-### 2. Select observations and variables
+By convention, R reads in the data in a format called `data frame`. We will deal with this format of data most of the time. It's really important to get familiar with the techniques of manipulating the `data frame`. Let's start with the basic concept of `data frame`.
 
-### 3. Rename variables
 
-### 4. Deal with categorical variables
+### Data Frames
+
+**Data frame:** A data frame is a list of vectors which are of equal length. A matrix contains only one type of data, while a data frame accepts different data types (numeric, character, factor, etc.). (guru99)
+
+#### Creating a data frame 
+
+Run the following code to create and print a data frame:
+
+```{r dfs, exercise=TRUE, exercise.completion=T}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+df
+```
+
+#### Naming columns 
+
+The following code renames the columns as:
+1. a <- cat
+2. b <- dog
+3. c <- mouse
+4. d <- sheep
+
+Edit the code so that the names make sense with the data:
+
+```{r df_create, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+```
+
+```{r dfs_name, exercise=TRUE, exercise.setup="df_create"}
+names(df) <- c("cat", "dog", "mouse", "sheep")
+df
+```
+
+```{r dfs_name-solution}
+names(df) <- c("ID", "items", "in-store", "price")
+df
+```
+
+
+#### Selecting rows and columns
+
+We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee `df` with the code `df[1,2]` which will select row 1 and column 2 of the data frame.
+
+Print out the third row of the price column:
+```{r df_create2, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r object_select, exercise=TRUE, exercise.setup="df_create2"}
+
+```
+
+```{r object_select-solution}
+df[3, 3]
+```
+
+You can also select the first entire row with `df[1, ]` or the entire first column with `df[ , 1]`. You can also select columns by their name and the `$` notation.
+
+Change the following code to select the items column:
+```{r df_create3, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r column_select, exercise=TRUE, exercise.setup="df_create3"}
+df$price
+```
+
+```{r column_select-solution}
+df$items
+```
+
+
+#### Append a column
+
+After we create a data frame, we can add a new column. We do this by creating a vector and then appending it to the end of the data frame.
+
+The following code creates a vector called "quantity" and adds it to the data frame as a column. Add to this code to create a vector called "student" which contains true/false values:
+
+```{r df_create4, include=FALSE}
+# Create a, b, c, d variables
+a <- c(10,20,30,40)
+b <- c('book', 'pen', 'textbook', 'pencil_case')
+c <- c(TRUE,FALSE,TRUE,FALSE)
+d <- c(2.5, 8, 10, 7)
+
+# Join the variables to create a data frame
+df <- data.frame(a,b,c,d)
+
+names(df) <- c("ID", "items", "in-store", "price")
+```
+
+```{r newcolumn, exercise=TRUE, exercise.eval=TRUE, exercise.setup="df_create4"}
+# Create a new vector
+quantity <- c(10, 35, 40, 5)
+
+# Add `quantity` to the `df` data frame
+df$quantity <- quantity
+df
+```
+
+```{r newcolumn-solution}
+# Create a new vector
+quantity <- c(10, 35, 40, 5)
+
+# Add `quantity` to the `df` data frame
+df$quantity <- quantity
+df
+
+student <- c(T, F, T, F)
+df$student <- student
+df
+```
+
+#### Quiz
+
+```{r quiz}
+quiz(
+  question("Choose all that apply. How can I select the second column (named bp) of a data frame?",
+    answer("df$bp", correct=T),
+    answer("df[2, ]"),
+    answer("df[ , 2]", correct=T),
+    answer("df[2, 2]")
+  )
+)
+```
+
 
 ## Plot
 In this section, we will use the `mtcars` data set to show how to plot in R. Let's read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).  
@@ -173,7 +361,5 @@ Now let's explore the relationship between horsepower and number of cylinders. D
 ```
 
 
-## Packages
-
-## Control Flow
+## R Markdown
 
