@@ -20,6 +20,23 @@ R is a high-level computer language developed by Ross Ihaka and Robert Gentleman
 
 This tutorial will cover the basic stuff of R for beginners of diverse background. Don't worry, no prior knowledge is required to learn R. R is not hard and full of fun!
 
+## Install R and Rstudio
+To dive into the world of R programming, you first need to install R on your laptop. Go directly to the official website of R, which is called [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network).
+![Download site of CRAN](images/installR1.png){width=400px}
+
+### If you are using Windows OS
+Click `Download R for Windows`, then click and download the `base` option. After finishing the download, you will get a file named `R-4.0.1-win.exe` or something similar, depending on the version of R you've download. Next, run the `exe` file. I suggest you use the default setting and simply click `Next` during the installation.
+![Download the `base` file of R on Windows](images/installR2.png){width=500px}
+
+### If you are using a Mac OS
+Click `Download R for (Mac) OS X`, then choose the latest `pkg` file to download. Install the `pkg` file and leave the options the same as Windows. You might need to enter your system password during the installing process.
+![Download the latest `pkg` file of R on Mac](images/installR3.png){width=500px}
+
+
+### Install Rstudio
+Now you've already had R on your laptop. However, the default R editor and environment are too simple and crude for R beginners. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). The website will automatically choose the suitable installation file based on the OS you're using. If not, scroll down the page and choose the download accordingly.
+![Download Rstudio](images/installRstudio.png){width=500px}
+
 ## Get started with Rstudio
 Rstudio is the most popular Integrated Development Environment (IDE) of R. It is a software application which allows the user to use R language in more a user-friendly manner. A typical Rstudio interface looks like this:
 
@@ -32,7 +49,9 @@ It can be divided into 4 working area:
 ![](images/console.png){width=400px}
 * B: Workspace tab. This area store all the objects (values, model, data and etc...) that you've created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the workspace tab. You can click the rectangle button in the circle to view the data in a new data editor.
 ![](images/workspace.png){width=600px}
-* D: This tab provides with several functions. The `Files` tab allow you to browse files and read in data. The `Plots` tab display the graphs you created in R. ![Plots](images/plot.png){width=300px} 
+* D: This tab provides with several functions. The `Plots` tab display the graphs you created in R. (If your code creates a graphic object in R, Rstudio will present it automatically in the `Plots` tab, instead of in the console).
+
+![Plots](images/plot.png){width=300px} 
 
 `Packages` let you install and load various `R package` to assist your analysis. Note that you can only use a package after you load it into your workspace. To load a package, type `library(pakcage.name)` in the cosole or simple check the box in the `Packages` tab.
 
@@ -45,6 +64,35 @@ If you need any help, click the `Help` tab and search for help documentation in 
 Lastly, the `Viewer` tab displays the `html` files in your local computer or returned by R. Below is an interactive graph produced by R in a html file.
 
 ![Viewer](images/viewer.png){width=300px}
+
+### Exercise: How to find files and load data
+In practice, we deal with a large amount of data located in different folders. How to manage, find and load these data and R script efficiently? The easiest way is to use the `Files` navigator in Rstudio. It's a tab in the D area.
+
+![](images/file.png){width=300px}
+
+For illustration purpose, download the graduate admission data to your laptop from [UCLA IDRE](https://stats.idre.ucla.edu/stat/data/binary.csv). Save this file to a folder you can easily access to. For example, I save it to the `Downloads` folder. Then I click the `Downloads` folder, I can find the data I downloaded just now.
+
+![](images/file2.png){width=300px}
+
+#### Set working directory
+`Working directory` is an important concept in R (or any other programming language). Basically, it is the folder that R currently operates in. By default, R can only 'sees' files in the `working directory`, unless you specify an absolute path to the file. For example, my current working directory is `~/Dropbox/Study_USC/LA_BEST/LA-BEST-TA`. The graduate data is a `csv` file in `Downloads`, so I want to load this data by function `read.csv`. However, if I directly type the file name as `binary.csv`, R will return an error message to me! 
+
+![](images/error.png){width=300px}
+
+Why? Because the data is located in a different folder which is not my working directory and R cannot 'see' this file. To fix the error, we can either specify the absolute path to tell R where to find the file we want:
+```{r, eval=FALSE}
+grad <- read.csv("~/Downloads/binary.csv")
+```
+
+Or we can change our working directory to the folder that stored the data. To do so, change to the folder you save the grad data, click the `More` button and select `Set As Working Directory`.
+
+![](images/errorfix.png){width=400px}
+
+Now retype the code `grad <- read.csv("binary.csv")` in your console, do you get rid of the error message?
+
+#### Suggestions: Each time you launch R, use `getwd()` to check the current working directory and change your working directory if necessary. 
+
+
 
 ### A Little More About Packages
 `R package` is a collection of codes, data and documentation which is shareable among R users. It is one of the most attractive properties of R. You can regard them as add-ons to R which makes R more powerful to deal with more challenging tasks. R developers publish their packages on several repository website. The most commonly used website is `CRAN`, which is built in with base R. Currently, `CRAN` stores more than 15,000 packages. To install packages directly from `CRAN`, simply type the folloing codes in the console,
@@ -109,22 +157,15 @@ b > c
 
 
 
-## Play with Data
-### Data input
-Importing data into R is fairly simple. `.csv` files are the most commonly used data type in R. To input such file, we use the built-in function `read.csv`. For files with extension `.txt`, try another generic function `read.table`. 
-
-By convention, R reads in the data in a format called `data frame`. We will deal with this format of data most of the time. It's really important to get familiar with the techniques of manipulating the `data frame`. Let's start with the basic concept of `data frame`.
-
-
-### Data Frames
+## Data Frames
 
 **Data frame:** A data frame is a list of vectors which are of equal length. A matrix contains only one type of data, while a data frame accepts different data types (numeric, character, factor, etc.). (guru99)
 
-#### Creating a data frame 
+### Creating a data frame 
 
 Run the following code to create and print a data frame:
 
-```{r dfs, exercise=TRUE, exercise.completion=T}
+```{r dfs, exercise=TRUE}
 # Create a, b, c, d variables
 a <- c(10,20,30,40)
 b <- c('book', 'pen', 'textbook', 'pencil_case')
@@ -136,13 +177,14 @@ df <- data.frame(a,b,c,d)
 df
 ```
 
-#### Naming columns 
+### Naming columns 
 
 The following code renames the columns as:
-1. a <- cat
-2. b <- dog
-3. c <- mouse
-4. d <- sheep
+
++ a = cat 
++ b = dog 
++ c = mouse 
++ d = sheep
 
 Edit the code so that the names make sense with the data:
 
@@ -168,7 +210,7 @@ df
 ```
 
 
-#### Selecting rows and columns
+### Selecting rows and columns
 
 We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee `df` with the code `df[1,2]` which will select row 1 and column 2 of the data frame.
 
@@ -219,7 +261,7 @@ df$items
 ```
 
 
-#### Append a column
+### Append a column
 
 After we create a data frame, we can add a new column. We do this by creating a vector and then appending it to the end of the data frame.
 
@@ -260,7 +302,7 @@ df$student <- student
 df
 ```
 
-#### Quiz
+### Quiz
 
 ```{r quiz}
 quiz(
@@ -273,7 +315,70 @@ quiz(
 )
 ```
 
+## Factor Variables
 
+**Factor:** Factors are R's versions of categorical variables, meaning the variable has a limited amount of possible values and these possible values are usually contained in a finite set.
+
+Examples:
+
+* Sex $\in$ \{Male, Female\}
+* Asthma $\in$ \{Yes, No\}
+* Age category $\in$ \{0-10, 11-20, 21-30, 31-40, >40\}
+
+We'll use the `mtcars` dataset to look at factor variables. Run the following code to look at the structure of the dataset:
+
+```{r datasetstructure, exercise=TRUE}
+str(mtcars)
+```
+
+All of the variables are coded as numerics, but if we look at the values of these variables, some of them could be factors. Potential factors:
+
+* cyl = Number of cylinders; values $\in$ \{4, 6, 8\}
+* vs = Engine; values $\in$ \{0=V-shaped, 1=straight\}
+* am = Transmission; values $\in$ \{0=automatic, 1=manual\}
+* gear = Number of forward gears; values $\in$ \{3, 4, 5\}
+* carb = Number of carburetors; values $\in$ \{1, 2, 3, 4, 6, 8\}
+
+Let's focus on number of cylinders and engine type. To work with these variables more appropriately, we need to change them into factors. The basic syntax for the `factor()` function is this: ``factor(x = character(), levels, labels = levels, ordered = is.ordered(x))``
+
+* *x* should be a vector of data to change into a factor
+* *levels* is the possible values of x
+* *labels* are the labels to place on these levels
+* *ordered* tells us whether there is an inherent ordering to the levels
+
+The `gear` variable has a very similar structure to the `cyl` variable. Augment the following code to make it work for the `cyl` variable:
+
+```{r factor_nolabel, exercise=TRUE}
+mtcars$gear <- factor(mtcars$gear, levels=c(3,4,5), ordered=T)
+```
+
+```{r factor_nolabel-solution}
+mtcars$cyl <- factor(mtcars$cyl, levels=c(4,6,8), ordered=T)
+```
+
+We didn't use labels for this one since the labels would just be the same as the levels. 
+
+The `am` variable has a very similar structure to the `vs` variable. Augment the following code to make it work for the `vs` variable:
+
+```{r factor_label, exercise=TRUE}
+mtcars$am <- factor(mtcars$am, levels=c(0,1), labels=c("automatic","manual"), ordered=F)
+```
+
+```{r factor_label-solution}
+mtcars$vs <- factor(mtcars$vs, levels=c(0,1), labels=c("V-shaped","straight"), ordered=F)
+```
+
+Now look at the structure of the dataset again and see what's changed.
+
+```{r datasetstructure2, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r datasetstructure2-solution}
+str(mtcars)
+```
+
+Why does it matter? It's important to have variables in their correct form when using modelling commands, and it also gives a lot of extra options when creating graphs.
 ## Plot
 In this section, we will use the `mtcars` data set to show how to plot in R. Let's read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).  
 ```{r}
