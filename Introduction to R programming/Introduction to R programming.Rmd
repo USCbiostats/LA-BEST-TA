@@ -22,19 +22,23 @@ This tutorial will cover the basic stuff of R for beginners of diverse backgroun
 
 ## Install R and Rstudio
 To dive into the world of R programming, you first need to install R on your laptop. Go directly to the official website of R, which is called [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network).
+
 ![Download site of CRAN](images/installR1.png){width=400px}
 
 ### If you are using Windows OS
 Click `Download R for Windows`, then click and download the `base` option. After finishing the download, you will get a file named `R-4.0.1-win.exe` or something similar, depending on the version of R you've download. Next, run the `exe` file. I suggest you use the default setting and simply click `Next` during the installation.
+
 ![Download the `base` file of R on Windows](images/installR2.png){width=500px}
 
 ### If you are using a Mac OS
 Click `Download R for (Mac) OS X`, then choose the latest `pkg` file to download. Install the `pkg` file and leave the options the same as Windows. You might need to enter your system password during the installing process.
+
 ![Download the latest `pkg` file of R on Mac](images/installR3.png){width=500px}
 
 
 ### Install Rstudio
 Now you've already had R on your laptop. However, the default R editor and environment are too simple and crude for R beginners. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). The website will automatically choose the suitable installation file based on the OS you're using. If not, scroll down the page and choose the download accordingly.
+
 ![Download Rstudio](images/installRstudio.png){width=500px}
 
 ## Get started with Rstudio
@@ -46,8 +50,10 @@ It can be divided into 4 working area:
 
 * A: R script. This is the area where you keep the code of your work. It is the same as the `.do` files in STATA. It is suggested to write the code in the script and then test the code in R. To create a new R script, you can go to the menu bar and select `File -> New File -> R script`. Don't forget to save the chages once you modified the codes in your script.
 * C: Console. This tab is exactly the same as you directly open the R software installed on your computer. It executes the codes written in the R script and display the messages the codes return. For example, if we type `print("Hello World")` in the script, select the codes and click the `Run` button, the console will display the selected codes along with their output. The shortcut for running selected codes is `Command + Return` in Mac and `Ctrl + Enter` in Windows.
+
 ![](images/console.png){width=400px}
 * B: Workspace tab. This area store all the objects (values, model, data and etc...) that you've created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the workspace tab. You can click the rectangle button in the circle to view the data in a new data editor.
+
 ![](images/workspace.png){width=600px}
 * D: This tab provides with several functions. The `Plots` tab display the graphs you created in R. (If your code creates a graphic object in R, Rstudio will present it automatically in the `Plots` tab, instead of in the console).
 
@@ -392,6 +398,7 @@ mtcars <- within(mtcars, {
 })
 ```
 
+## Plot
 ### 1. Scatter plot
 A scatter plot can reveal the patterns of correlation between two variables. For `mtcars`, `hp` represents the horsepower of the automobiles and `qsec` is the 1/4 mile time. We now use a scatter plot to explore the relationship between these two variables.
 ```{r}
