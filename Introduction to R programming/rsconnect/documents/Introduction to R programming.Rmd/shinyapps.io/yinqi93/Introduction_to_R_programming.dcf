@@ -1,12 +1,12 @@
 name: Introduction_to_R_programming
-title: Introduction_to_R_programming
+title: Introduction to R programming
 username:
 account: yinqi93
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2447882
-bundleId: 3292648
+bundleId: 3378189
 url: https://yinqi93.shinyapps.io/introduction_to_r_programming/
-when: 1592583845.04903
+when: 1594420210.50761
 asMultiple: FALSE
 asStatic: FALSE

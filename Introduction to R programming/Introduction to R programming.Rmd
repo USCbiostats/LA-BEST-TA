@@ -21,58 +21,55 @@ R is a high-level computer language developed by Ross Ihaka and Robert Gentleman
 This tutorial will cover the basic stuff of R for beginners of diverse background. Don't worry, no prior knowledge is required to learn R. R is not hard and full of fun!
 
 ## Install R and Rstudio
-To dive into the world of R programming, you first need to install R on your laptop. Go directly to the official website of R, which is called [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network).
+To dive into the world of R programming, firstly, you need to install R on your computer and set up the coding environment. Go directly to the official website of R, which is called [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network).
 
-![Download site of CRAN](images/installR1.png){width=400px}
+![Fig1: the screenshot of CRAN](images/installR1.png){width=400px}
 
 ### If you are using Windows OS
-Click `Download R for Windows`, then click and download the `base` option. After finishing the download, you will get a file named `R-4.0.1-win.exe` or something similar, depending on the version of R you've download. Next, run the `exe` file. I suggest you use the default setting and simply click `Next` during the installation.
+Click `Download R for Windows`, then download the `base` file. You will get a file named `R-4.0.1-win.exe` or something similar, depending on the version of the R you've download. Don't worry about the slight difference in the version of R since most of the statistical analysis are stable. Next, double click the `exe` file to initialize installation. It is suggested to use the default setting for installation (simply click `Next`).
 
-![Download the `base` file of R on Windows](images/installR2.png){width=500px}
+![Fig2: A screeshot of R for Windows](images/installR2.png){width=500px}
 
 ### If you are using a Mac OS
-Click `Download R for (Mac) OS X`, then choose the latest `pkg` file to download. Install the `pkg` file and leave the options the same as Windows. You might need to enter your system password during the installing process.
+Click `Download R for (Mac) OS X`, then download the latest `pkg` file. Install the `pkg` file and leave the options as default. You might need to enter your system password during the installing process.
 
-![Download the latest `pkg` file of R on Mac](images/installR3.png){width=500px}
+![Fig3: A screenshot of R for Mac](images/installR3.png){width=500px}
 
 
 ### Install Rstudio
-Now you've already had R on your laptop. However, the default R editor and environment are too simple and crude for R beginners. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). The website will automatically choose the suitable installation file based on the OS you're using. If not, scroll down the page and choose the download accordingly.
+Now you've already had R on your laptop. However, the default R editor and environment are hard to use. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.
 
-![Download Rstudio](images/installRstudio.png){width=500px}
+![Fig4: Download Rstudio](images/installRstudio.png){width=500px}
 
 ## Get started with Rstudio
-Rstudio is the most popular Integrated Development Environment (IDE) of R. It is a software application which allows the user to use R language in more a user-friendly manner. A typical Rstudio interface looks like this:
+Rstudio is the most popular Integrated Development Environment (IDE) of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. A typical Rstudio interface looks like this:
 
 ![An exmaple of Rstudio User Interface](images/Rstudio interface.png){width=600px}
 
-It can be divided into 4 working area:
+It can be divided into 4 working areas: R Script, consoles, environment (where you can easily view the data and variables you've created) and a combination of file navigator, plot viewer and help file. Let's check them one by one.
 
-* A: R script. This is the area where you keep the code of your work. It is the same as the `.do` files in STATA. It is suggested to write the code in the script and then test the code in R. To create a new R script, you can go to the menu bar and select `File -> New File -> R script`. Don't forget to save the chages once you modified the codes in your script.
-* C: Console. This tab is exactly the same as you directly open the R software installed on your computer. It executes the codes written in the R script and display the messages the codes return. For example, if we type `print("Hello World")` in the script, select the codes and click the `Run` button, the console will display the selected codes along with their output. The shortcut for running selected codes is `Command + Return` in Mac and `Ctrl + Enter` in Windows.
+### Section A: R Script
+An R script is a executable file which document all the codes of your work. You can regard it as the `.do` file in STATA or `.sas` file in SAS. During the workflow, it is suggested to keep a record of the code in the script and then test the code in R console. To create a new R script, you can go to the menu bar and select `File -> New File -> R script`. Don't forget to save the changes once you modified the codes in your script.
+
+#### Commenting Codes
+Always remember to annotate your codes! You might have noticed that the color of word behind the pound sign `#` is different from the rest. In a R script, `#` tells R the strings behind it are comments to the script instead of executable R codes. Comments can document your thoughts, organize code structure and help other researcher understand your work. Good practice of comments facilitate your coding stuff and makes life much easier, especially when you are dealing with a large project. Here are some useful tips regarding [how to comment codes](https://www.elegantthemes.com/blog/wordpress/how-to-comment-your-code-like-a-pro-best-practices-and-good-habits)
+
+### Section B: Console
+This tab is exactly the same as you directly open the R software installed on your computer. Console is the place where R codes are executed. It also displays the results and messages (such as warnings and errors) the codes return. A typical workflow of coding is to write the codes in the script, test them in the console and then save your work. For example, if we type `print("Hello World")` in the script, select the codes and click the `Run` button, the console will display the selected codes along with their output. 
+
+#### Shortuct of running R codes
+The shortcut for running selected codes is `Command + Return` in Mac and `Ctrl + Enter` in Windows. You can also use the shortcut to run the codes line by line without selecting. Another useful shortcut in console is `up`, which could retrieve your previous codes.
 
 ![](images/console.png){width=400px}
-* B: Workspace tab. This area store all the objects (values, model, data and etc...) that you've created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the workspace tab. You can click the rectangle button in the circle to view the data in a new data editor.
+
+### Section C: Environment
+This tab stores all the objects (values, model, data and etc...) that you've created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the environment tab. You can click the button in the red circle to view the data in a data editor.
 
 ![](images/workspace.png){width=600px}
-* D: This tab provides with several functions. The `Plots` tab display the graphs you created in R. (If your code creates a graphic object in R, Rstudio will present it automatically in the `Plots` tab, instead of in the console).
 
-![Plots](images/plot.png){width=300px} 
-
-`Packages` let you install and load various `R package` to assist your analysis. Note that you can only use a package after you load it into your workspace. To load a package, type `library(pakcage.name)` in the cosole or simple check the box in the `Packages` tab.
-
-![Packeges](images/package.png){width=300px}
-
-If you need any help, click the `Help` tab and search for help documentation in the search box. Or you can directly type `?` before the function to open the help file. For example, if you want to know more about the `mean` function, run `?mean` in the console tab.
-
-![Help](images/help.png){width=300px}
-
-Lastly, the `Viewer` tab displays the `html` files in your local computer or returned by R. Below is an interactive graph produced by R in a html file.
-
-![Viewer](images/viewer.png){width=300px}
-
-### Exercise: How to find files and load data
-In practice, we deal with a large amount of data located in different folders. How to manage, find and load these data and R script efficiently? The easiest way is to use the `Files` navigator in Rstudio. It's a tab in the D area.
+### Scetion D
+#### File navigator
+In practice, we deal with a large amount of data and R scripts located in different folders. How to manage, find and load these data and R script efficiently? The easiest way is to use the `Files` navigator in Rstudio.
 
 ![](images/file.png){width=300px}
 
@@ -80,8 +77,10 @@ For illustration purpose, download the graduate admission data to your laptop fr
 
 ![](images/file2.png){width=300px}
 
+Now we can find the data we needed for work, how do we load the data into R for further analysis? This is related to understanding the working directory.
+
 #### Set working directory
-`Working directory` is an important concept in R (or any other programming language). Basically, it is the folder that R currently operates in. By default, R can only 'sees' files in the `working directory`, unless you specify an absolute path to the file. For example, my current working directory is `~/Dropbox/Study_USC/LA_BEST/LA-BEST-TA`. The graduate data is a `csv` file in `Downloads`, so I want to load this data by function `read.csv`. However, if I directly type the file name as `binary.csv`, R will return an error message to me! 
+`Working directory` is an important concept in R (or any other programming language). Basically, it is the folder that R currently operates in. By default, R can only 'see' the files in the `working directory`, unless you specify an absolute path to the file (an absolute path is the unique coordinates of a file in the computer). You can check your working directory by running `getwd()` in the console. For example, my current working directory is `~/Dropbox/Study_USC/LA_BEST/LA-BEST-TA`. The graduate data is a `csv` file in `Downloads`, so I want to load this data by function `read.csv`. (R has a variety of functions to read different type of data. For further reference, check the tutorial on [Data import in R](https://www.datacamp.com/community/tutorials/r-data-import-tutorial)) If I directly type the file name `binary.csv` in the `read.csv` function, R will return an error message to me! 
 
 ![](images/error.png){width=300px}
 
@@ -90,23 +89,52 @@ Why? Because the data is located in a different folder which is not my working d
 grad <- read.csv("~/Downloads/binary.csv")
 ```
 
-Or we can change our working directory to the folder that stored the data. To do so, change to the folder you save the grad data, click the `More` button and select `Set As Working Directory`.
+or we can change our working directory to the folder that stored the data. To do so, use the file navigator to open the folder you save the grad data, click the `More` button and select `Set As Working Directory`.
 
 ![](images/errorfix.png){width=400px}
 
 Now retype the code `grad <- read.csv("binary.csv")` in your console, do you get rid of the error message?
 
-#### Suggestions: Each time you launch R, use `getwd()` to check the current working directory and change your working directory if necessary. 
+*Suggestions*: Each time you launch R, use `getwd()` to check the current working directory and change your working directory if necessary. 
 
 
+### Plots
+This `Plots` tab display the graphs you created in R. (If your code creates a graphic object in R, Rstudio will present it automatically in the `Plots` tab, instead of in the console). For example, 
 
-### A Little More About Packages
+![](images/plot.png){width=450px} 
+
+### Packages
 `R package` is a collection of codes, data and documentation which is shareable among R users. It is one of the most attractive properties of R. You can regard them as add-ons to R which makes R more powerful to deal with more challenging tasks. R developers publish their packages on several repository website. The most commonly used website is `CRAN`, which is built in with base R. Currently, `CRAN` stores more than 15,000 packages. To install packages directly from `CRAN`, simply type the folloing codes in the console,
 ```{r eval=FALSE}
 install.packages("package name") # just put in the package name you want to install in the quotation mark
 ```
 
-Other famous websites are `github` and `bioconductor`. To learn more about installing packages from these two repositories, please refer to [install packages from github](https://www.displayr.com/installing-r-packages-from-github/) and [install packages from bioconductor](https://www.bioconductor.org/install/).
+Another option to install package is to click the button `install` in the `Packages` tab and type the package name into it.
+
+Other famous websites storing packages are `github` and `bioconductor`. To learn more about installing packages from these two repositories, please refer to [install packages from github](https://www.displayr.com/installing-r-packages-from-github/) and [install packages from bioconductor](https://www.bioconductor.org/install/).
+
+Note that you can only use a package after you load it into your workspace. To load a package, type `library(pakcage.name)` in the console or simple check the checkbox in the `Packages` tab.
+
+![](images/package.png){width=400px}
+
+### Help
+If you need any help, click the `Help` tab and search for help documentation in the search box. Or you can directly type `?` before the function to open the help file. For example, if you want to know more about the `mean` function, run `?mean` in the console tab.
+
+![](images/help.png){width=450px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Basic Command
 
@@ -412,6 +440,10 @@ Now it's your turn to explore the relationship between miles per gallon (`mpg`) 
 
 ```
 
+```{r scatter-solution}
+plot(x = mtcars$mpg, y = mtcars$hp)
+```
+
 ### 2. Histogram
 A histogram is a graphical display of continuous data using bars of different heights. The height of bar represents the number of observations in a specific data range. We can use histogram to determine the statistical distribution of the variable of interest. For example, let's plot the histogram of `mpg` by function `hist`.
 ```{r}
@@ -425,10 +457,15 @@ hist(mtcars$mpg, main = "Histogram of miles per gallon", xlab = "miles per gallo
 
 Here, `main` change the titles as you want, `xlab` specifies the label of x-axis and `col` changes the fill color of the bar. Actually, these additional parameters are shared by most generic plot function in R. Refer to [Graphical Parameters](https://www.statmethods.net/advgraphs/parameters.html) for more details.
 
-Next, plot the histogram of horsepower `hp`. Specify the histogram title as "Histogram of horse power" and the label of x-axis as "horse power". Fill the bar by color "red". Does the shape of histogram of horse power differ from that of the `mpg`?
+Next, plot the histogram of horsepower `hp`. Specify the histogram title as "Histogram of horsepower" and the label of x-axis as "horse power". Fill the bar by color "red". Does the shape of histogram of horse power differ from that of the `mpg`?
 ```{r hist, exercise=TRUE}
 
 ```
+
+```{r hist-solution}
+hist(mtcars$mpg, main = "Histogram of horsepower", xlab = "horsepower", col = "red")
+```
+
 
 ### 3. Barplot
 Similar to the histogram, barplot exhibits the counts of a categorical variable. However, before we use the function `barplot` in R, we need to first create a count table for the categorical variable. This is achieved by the function `table()`.
@@ -447,10 +484,17 @@ Try to find out which 5 vehicles have 5 forward gear and then plot a barplot for
 # which vehicle has 5 forward gear?
 
 # barplot for carb
-counts <- table()
-barplot
+
 ```
 
+```{r barplot-solution}
+# which vehicle has 5 forward gear?
+mtcars[mtcars$gear == 5, ]
+# barplot for carb
+counts <- table(mtcars$carb)
+barplot(counts, main="Barplot of number of carbs",
+   xlab="Number of carbs")
+```
 
 
 
@@ -461,8 +505,7 @@ boxplot(mtcars$mpg, main = "Boxplot of mpg")
 ```
 Alternatively, we can create a boxplot by group. Still take the `mpg` as an example and draw boxplots of `mpg` by the number of cylinders `cly`.
 ```{r}
-boxplot(mpg ~ cyl, data = mtcars, main = "Boxplot of mpg by cylinder group",
-   xlab = "Number of Cylinders", ylab = "Miles Per Gallon")
+boxplot(mpg ~ cyl, data = mtcars, main = "Boxplot of mpg by cylinder group", xlab = "Number of Cylinders", ylab = "Miles Per Gallon")
 ```
 
 Here `mpg ~ cyl` represents creating a boxplot of mpg by group of cylinders. Parameter `data` tells the function `boxplot` which data set we want to use. Besides, you may have noticed, `ylab` chage the label of y-axis just the same as `xlab`.
@@ -472,6 +515,38 @@ Now let's explore the relationship between horsepower and number of cylinders. D
 
 ```
 
+```{r boxplot-solution}
+boxplot(hp ~ cyl, data = mtcars, main = "Boxplot of horsepower by cylinder group", xlab = "Number of Cylinders", ylab = "Horsepower")
+```
 
 ## R Markdown
+### Overview
+R markdown is a markdown file system tailored for data science community. It could display and execute R codes and generate reproducible report that is easy to communicate and share. Here, I'll show you the examples of R markdown report and the workflow of R markdown system.
 
+### Installation
+Like many other functions of R, R markdown is also warped in the form of package. To install it from CRAN, use the following code:
+```{r eval=FALSE}
+install.packages("rmarkdown")
+```
+
+### Step 1: Create a new R markdown file
+To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which coulb be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.
+
+![](images/step1.png){width=500px}
+
+### Step 2: Write your R markdown document
+You can write in the markdwon file just as in MS Word. The plain text will be rendered into words while some special syntax will be rendered into title, bold text, web links etc. For example, `## R Markdown` is rendered into a header in the output. The best property of R markdown is inclusion of R codes. You can insert the executable code chunk by `control + option + I` in Mac or `shift + alt + I` in Windows. Such codes can be integrated into the output file along with their output. For example, we summarize the `cars` data in the code chunk by call the function `summary`. After rendering it into an html file, we shall see the original R codes and the summary of `cars`. 
+
+![](images/step2.png){width=500px}
+
+### Step 3: Knit the R markdown file and communicate your work
+After finish your write up, you can render the raw R markdown file into a high quality report. Click the `knit` button in the red circle. The `R Markdown` tab will display the log during rendering. If there are any bugs in your codes, the log will tell you where it is. Then you go back to your R markdown script and debug. Once you succeed, R studio will prompt another window to display the output.
+
+![](images/step3.png){width=500px}
+
+### Insert math equations
+R markdown support syntax of LaTeX. The text between two dollar signs will be treated as LaTeX syntax. For example, `$\sum_i p_i = 1$` will be rendered into $\sum_i p_i = 1$ in the output file. It takes a while to study the grammar of LaTeX. However, once you master it, you will find it extremely convenient to present your research work in a publishable report together with your codes and plots. For a brief tutorial of mathematical expression of LaTeX, you can refer to the [help page of Overleaf](https://www.overleaf.com/learn/latex/mathematical_expressions), which is a popular online editor of LaTeX.
+
+### Further references
+1. A [video demo](https://www.youtube.com/watch?v=DNS7i2m4sB0) of R markdwon by Roger Peng
+2. [Official syntax reference of R markdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.253189193.1176129760.1594402129-1703257209.1582172301)

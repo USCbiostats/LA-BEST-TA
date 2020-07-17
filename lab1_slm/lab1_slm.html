@@ -8,13 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
-<meta name="author" content="Yinqi Zhao (yinqiz@usc.edu), Katelyn Queen" />
 
 
 <meta name="progressive" content="false" />
 <meta name="allow-skip" content="false" />
 
-<title>Introduction to R Programming</title>
+<title>Tutorial</title>
 
 
 <!-- highlightjs -->
@@ -117,551 +116,179 @@ $(document).ready(function () {
 
 <div class="topics">
 
-<div id="section-introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Welcome to the LA’s BEST summer camp! In this lab, we will learn R, one of the most popular programming languages in the world of data.</p>
-<p>R is a high-level computer language developed by Ross Ihaka and Robert Gentleman in 1993. It provides a comprehensive tool kits of statistical analysis and a variety of communicating techniques to present and share the work (graphics of publish quality, LaTeX-style documentations, interactive shiny apps, …). The most exciting feature of R is a user-friendly library management system. You can extend R functionality by install <em>packages</em> into your library (which will be covered later). With the help of <em>packages</em>, you can not only conduct the most cutting-edge data analysis, but also create animation plots, write books and build your own personal website.</p>
-<div class="figure">
-<img src="images/example%20of%20plot.png" width="400" alt="" />
-<p class="caption">An example of the powerful R graphics library. You can learn more about it in <a href="https://www.r-graph-gallery.com/index.html">The R Graph Gallery</a></p>
-</div>
-<p>This tutorial will cover the basic stuff of R for beginners of diverse background. Don’t worry, no prior knowledge is required to learn R. R is not hard and full of fun!</p>
-</div>
-<div id="section-install-r-and-rstudio" class="section level2">
-<h2>Install R and Rstudio</h2>
-<p>To dive into the world of R programming, firstly, you need to install R on your computer and set up the coding environment. Go directly to the official website of R, which is called <a href="https://cran.r-project.org/">CRAN</a> (the Comprehensive R Archive Network).</p>
-<div class="figure">
-<img src="images/installR1.png" width="400" alt="" />
-<p class="caption">Fig1: the screenshot of CRAN</p>
-</div>
-<div id="section-if-you-are-using-windows-os" class="section level3">
-<h3>If you are using Windows OS</h3>
-<p>Click <code>Download R for Windows</code>, then download the <code>base</code> file. You will get a file named <code>R-4.0.1-win.exe</code> or something similar, depending on the version of the R you’ve download. Don’t worry about the slight difference in the version of R since most of the statistical analysis are stable. Next, double click the <code>exe</code> file to initialize installation. It is suggested to use the default setting for installation (simply click <code>Next</code>).</p>
-<div class="figure">
-<img src="images/installR2.png" width="500" alt="" />
-<p class="caption">Fig2: A screeshot of R for Windows</p>
-</div>
-</div>
-<div id="section-if-you-are-using-a-mac-os" class="section level3">
-<h3>If you are using a Mac OS</h3>
-<p>Click <code>Download R for (Mac) OS X</code>, then download the latest <code>pkg</code> file. Install the <code>pkg</code> file and leave the options as default. You might need to enter your system password during the installing process.</p>
-<div class="figure">
-<img src="images/installR3.png" width="500" alt="" />
-<p class="caption">Fig3: A screenshot of R for Mac</p>
-</div>
-</div>
-<div id="section-install-rstudio" class="section level3">
-<h3>Install Rstudio</h3>
-<p>Now you’ve already had R on your laptop. However, the default R editor and environment are hard to use. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let’s install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of <a href="https://rstudio.com/products/rstudio/download/#download">Rstudio</a>. usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.</p>
-<div class="figure">
-<img src="images/installRstudio.png" width="500" alt="" />
-<p class="caption">Fig4: Download Rstudio</p>
-</div>
-</div>
-</div>
-<div id="section-get-started-with-rstudio" class="section level2">
-<h2>Get started with Rstudio</h2>
-<p>Rstudio is the most popular Integrated Development Environment (IDE) of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. A typical Rstudio interface looks like this:</p>
-<div class="figure">
-<img src="images/Rstudio%20interface.png" width="600" alt="" />
-<p class="caption">An exmaple of Rstudio User Interface</p>
-</div>
-<p>It can be divided into 4 working areas: R Script, consoles, environment (where you can easily view the data and variables you’ve created) and a combination of file navigator, plot viewer and help file. Let’s check them one by one.</p>
-<div id="section-section-a-r-script" class="section level3">
-<h3>Section A: R Script</h3>
-<p>An R script is a executable file which document all the codes of your work. You can regard it as the <code>.do</code> file in STATA or <code>.sas</code> file in SAS. During the workflow, it is suggested to keep a record of the code in the script and then test the code in R console. To create a new R script, you can go to the menu bar and select <code>File -&gt; New File -&gt; R script</code>. Don’t forget to save the changes once you modified the codes in your script.</p>
-<div id="section-commenting-codes" class="section level4">
-<h4>Commenting Codes</h4>
-<p>Always remember to annotate your codes! You might have noticed that the color of word behind the pound sign <code>#</code> is different from the rest. In a R script, <code>#</code> tells R the strings behind it are comments to the script instead of executable R codes. Comments can document your thoughts, organize code structure and help other researcher understand your work. Good practice of comments facilitate your coding stuff and makes life much easier, especially when you are dealing with a large project. Here are some useful tips regarding <a href="https://www.elegantthemes.com/blog/wordpress/how-to-comment-your-code-like-a-pro-best-practices-and-good-habits">how to comment codes</a></p>
-</div>
-</div>
-<div id="section-section-b-console" class="section level3">
-<h3>Section B: Console</h3>
-<p>This tab is exactly the same as you directly open the R software installed on your computer. Console is the place where R codes are executed. It also displays the results and messages (such as warnings and errors) the codes return. A typical workflow of coding is to write the codes in the script, test them in the console and then save your work. For example, if we type <code>print("Hello World")</code> in the script, select the codes and click the <code>Run</code> button, the console will display the selected codes along with their output.</p>
-<div id="section-shortuct-of-running-r-codes" class="section level4">
-<h4>Shortuct of running R codes</h4>
-<p>The shortcut for running selected codes is <code>Command + Return</code> in Mac and <code>Ctrl + Enter</code> in Windows. You can also use the shortcut to run the codes line by line without selecting. Another useful shortcut in console is <code>up</code>, which could retrieve your previous codes.</p>
-<p><img src="images/console.png" width="400" /></p>
-</div>
-</div>
-<div id="section-section-c-environment" class="section level3">
-<h3>Section C: Environment</h3>
-<p>This tab stores all the objects (values, model, data and etc…) that you’ve created in R. For example, if we continue typing codes in your R script and executing the codes, you will see the objects you created are displayed in the environment tab. You can click the button in the red circle to view the data in a data editor.</p>
-<p><img src="images/workspace.png" width="600" /></p>
-</div>
-<div id="section-scetion-d" class="section level3">
-<h3>Scetion D</h3>
-<div id="section-file-navigator" class="section level4">
-<h4>File navigator</h4>
-<p>In practice, we deal with a large amount of data and R scripts located in different folders. How to manage, find and load these data and R script efficiently? The easiest way is to use the <code>Files</code> navigator in Rstudio.</p>
-<p><img src="images/file.png" width="300" /></p>
-<p>For illustration purpose, download the graduate admission data to your laptop from <a href="https://stats.idre.ucla.edu/stat/data/binary.csv">UCLA IDRE</a>. Save this file to a folder you can easily access to. For example, I save it to the <code>Downloads</code> folder. Then I click the <code>Downloads</code> folder, I can find the data I downloaded just now.</p>
-<p><img src="images/file2.png" width="300" /></p>
-<p>Now we can find the data we needed for work, how do we load the data into R for further analysis? This is related to understanding the working directory.</p>
-</div>
-<div id="section-set-working-directory" class="section level4">
-<h4>Set working directory</h4>
-<p><code>Working directory</code> is an important concept in R (or any other programming language). Basically, it is the folder that R currently operates in. By default, R can only ‘see’ the files in the <code>working directory</code>, unless you specify an absolute path to the file (an absolute path is the unique coordinates of a file in the computer). You can check your working directory by running <code>getwd()</code> in the console. For example, my current working directory is <code>~/Dropbox/Study_USC/LA_BEST/LA-BEST-TA</code>. The graduate data is a <code>csv</code> file in <code>Downloads</code>, so I want to load this data by function <code>read.csv</code>. (R has a variety of functions to read different type of data. For further reference, check the tutorial on <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial">Data import in R</a>) If I directly type the file name <code>binary.csv</code> in the <code>read.csv</code> function, R will return an error message to me!</p>
-<p><img src="images/error.png" width="300" /></p>
-<p>Why? Because the data is located in a different folder which is not my working directory and R cannot ‘see’ this file. To fix the error, we can either specify the absolute path to tell R where to find the file we want:</p>
-<pre class="r"><code>grad &lt;- read.csv(&quot;~/Downloads/binary.csv&quot;)</code></pre>
-<p>or we can change our working directory to the folder that stored the data. To do so, use the file navigator to open the folder you save the grad data, click the <code>More</code> button and select <code>Set As Working Directory</code>.</p>
-<p><img src="images/errorfix.png" width="400" /></p>
-<p>Now retype the code <code>grad &lt;- read.csv("binary.csv")</code> in your console, do you get rid of the error message?</p>
-<p><em>Suggestions</em>: Each time you launch R, use <code>getwd()</code> to check the current working directory and change your working directory if necessary.</p>
-</div>
-</div>
-<div id="section-plots" class="section level3">
-<h3>Plots</h3>
-<p>This <code>Plots</code> tab display the graphs you created in R. (If your code creates a graphic object in R, Rstudio will present it automatically in the <code>Plots</code> tab, instead of in the console). For example,</p>
-<p><img src="images/plot.png" width="450" /></p>
-</div>
-<div id="section-packages" class="section level3">
-<h3>Packages</h3>
-<p><code>R package</code> is a collection of codes, data and documentation which is shareable among R users. It is one of the most attractive properties of R. You can regard them as add-ons to R which makes R more powerful to deal with more challenging tasks. R developers publish their packages on several repository website. The most commonly used website is <code>CRAN</code>, which is built in with base R. Currently, <code>CRAN</code> stores more than 15,000 packages. To install packages directly from <code>CRAN</code>, simply type the folloing codes in the console,</p>
-<pre class="r"><code>install.packages(&quot;package name&quot;) # just put in the package name you want to install in the quotation mark</code></pre>
-<p>Another option to install package is to click the button <code>install</code> in the <code>Packages</code> tab and type the package name into it.</p>
-<p>Other famous websites storing packages are <code>github</code> and <code>bioconductor</code>. To learn more about installing packages from these two repositories, please refer to <a href="https://www.displayr.com/installing-r-packages-from-github/">install packages from github</a> and <a href="https://www.bioconductor.org/install/">install packages from bioconductor</a>.</p>
-<p>Note that you can only use a package after you load it into your workspace. To load a package, type <code>library(pakcage.name)</code> in the console or simple check the checkbox in the <code>Packages</code> tab.</p>
-<p><img src="images/package.png" width="400" /></p>
-</div>
-<div id="section-help" class="section level3">
-<h3>Help</h3>
-<p>If you need any help, click the <code>Help</code> tab and search for help documentation in the search box. Or you can directly type <code>?</code> before the function to open the help file. For example, if you want to know more about the <code>mean</code> function, run <code>?mean</code> in the console tab.</p>
-<p><img src="images/help.png" width="450" /></p>
-</div>
-</div>
-<div id="section-basic-command" class="section level2">
-<h2>Basic Command</h2>
-<div id="section-variables" class="section level3">
-<h3>Variables</h3>
-<p>As future data scientist, the first thing we need to do is to store data into an object. Such object is usually called <em>variable</em> in programming. In R, a variable not only stores data, but also keeps statistical models, predictions, and basically any R output. It’s simple to create a variable: just come up with a unique name then add a value to it by using <code>&lt;-</code> or <code>=</code>. (variable name can be a combination of <code>character</code>, <code>number</code>, <code>.</code> and <code>_</code>, however, it should start with a character).</p>
-<pre class="r"><code>year &lt;- 2020
-program &lt;- &quot;LA.BSET&quot;</code></pre>
-We create 2 types of variables: one is numeric labeled with name <code>year</code> and the other is a character whose name is <code>program</code>. In R, any value quoted by <code>"</code> or <code>'</code> is treated as character. Now try to create some variables and display them in the console.
-<div class="tutorial-exercise" data-label="variable" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="4">
-<pre class="text"><code>lastyear &lt;- 2019
-lastyear</code></pre>
+<div id="section-two-variable-correlation" class="section level2">
+<h2>Two-variable Correlation</h2>
+<p>Using the cholesterol dataset, explore the association between BMI and triglyceride levels. Note: We’ve already loaded two libraries, <code>dplyr</code> and <code>ggplot2</code> into this tutorial.</p>
+<p>Recall that the existing BMI was miscalculated, so we need to re-calculate it. Also generate a factor column for gender.</p>
+<div class="tutorial-exercise" data-label="read_data" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># use head() to check your results
+chol = read.csv(&quot;~/Desktop/chol.csv&quot;)
+chol = chol %&gt;% 
+  mutate(bmi_new = 703*wt/ht^2,
+         gender = factor(ifelse(female==1,&#39;Female&#39;,&#39;Male&#39;)))</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-</div>
-<div id="section-functions" class="section level3">
-<h3>Functions</h3>
-<p>Function is a wrapper of codes. We rely on functions to manipulate variables and conduct data analysis. Suppose we have a function named <code>fun</code>, we can call this function by type <code>fun()</code> in the console and add parameters in the parenthesis. For example, <code>rep()</code> is a useful built-in function which replicates the variables. Let’s replicate <code>year</code> by 3 times.</p>
-<pre class="r"><code>rep(year, 3)</code></pre>
-<pre><code>## [1] 2020 2020 2020</code></pre>
-<p>It’s important to read the help file when you encounter a new function and don’t know how to use it. To get help, type <code>?function.name</code> in the console or directly search it in the <code>Help</code> tag of the Rstudio.</p>
-Type <code>?paste</code> in the Rstudio console, read the help file and use paste to concatenate year and program.
-<div class="tutorial-exercise" data-label="paste" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="4">
-<pre class="text"><code>paste()</code></pre>
+First look at scatterplots:
+<div class="tutorial-exercise" data-label="scatterplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(chol, aes(x=bmi_new,y=tg)) +
+  geom_point()</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+Correlation, and p-value for correlation:
+<div class="tutorial-exercise" data-label="cor" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># pearson by default
+cor(chol$tg, chol$bmi_new, use=&quot;complete&quot;)
+# spearman
+cor(chol$tg, chol$bmi_new, use=&quot;complete&quot;, method = &quot;spearman&quot;)
+# test of correlation
+cor.test(chol$tg, chol$bmi_new)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-<div id="section-operators" class="section level3">
-<h3>Operators</h3>
-<p>There are 2 types of operators in R, arithmetic and logical operators.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Arithmetic</th>
-<th>Description</th>
-<th>Logical</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>+</code></td>
-<td>addition</td>
-<td><code>&lt;</code> (<code>&lt;=</code>)</td>
-<td>less than (or equal to)</td>
-</tr>
-<tr class="even">
-<td><code>-</code></td>
-<td>subtraction</td>
-<td><code>&gt;</code> (<code>&gt;=</code>)</td>
-<td>greater than (or equal to)</td>
-</tr>
-<tr class="odd">
-<td><code>*</code></td>
-<td>multiplication</td>
-<td><code>==</code></td>
-<td>exactly equal to</td>
-</tr>
-<tr class="even">
-<td><code>/</code></td>
-<td>division</td>
-<td><code>!=</code></td>
-<td>not equal to</td>
-</tr>
-<tr class="odd">
-<td><code>^</code></td>
-<td>exponentiation</td>
-<td><code>!</code></td>
-<td>negation</td>
-</tr>
-<tr class="even">
-<td><code>%%</code></td>
-<td>modulus</td>
-<td><code>|</code></td>
-<td>OR</td>
-</tr>
-<tr class="odd">
-<td><code>%/%</code></td>
-<td>integer division</td>
-<td><code>&amp;</code></td>
-<td>AND</td>
-</tr>
-</tbody>
-</table>
-Most operators can only be applied to the numeric variables. One exception is <code>==</code>, which can compare both numeric and character variables. Try the operators in the exercise with the provided variables or create variables by yourself. Figure out the logic of modulus and integer division.
-<div class="tutorial-exercise" data-label="operators" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>a &lt;- 10
-b &lt;- 3
-c &lt;- log(6) # this function computes natural logarithms of 6
-a + b
-a^2
-b &gt; c
-# try modulus and integer division</code></pre>
+Looking at the shape of the scatterplot, we might want to try logging y (tg) and re-check the correlation
+<div class="tutorial-exercise" data-label="cor2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(chol, aes(x=bmi_new,y=log(tg))) + 
+  geom_point( col=&quot;blue&quot;)
+cor.test(log(chol$tg), chol$bmi_new) # correlation is lower!</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Practice using <code>sbp</code> and <code>wt</code>!
+<div class="tutorial-exercise" data-label="exercise1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="exercise1-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># 1. check the scatterplot by ggplot
+ggplot(chol, aes(x=sbp,y=wt)) +
+  geom_point()
+# 2. check the correlation
+cor(chol$wt, chol$sbp, use=&quot;complete&quot;)
+# 3. test the p-value of the correlation
+cor.test(chol$wt, chol$sbp)
+# 4. use log function to sbp
+cor.test(chol$wt, log(chol$sbp))</code></pre>
+</div>
+</div>
+<div id="section-simple-linear-regression" class="section level2">
+<h2>Simple Linear Regression</h2>
+Look at the simple linear regression between BMI and triglycerides. Summarize the coefficients. Compare model R-squared to the Pearson’s correlation coefficient.
+<div class="tutorial-exercise" data-label="mod" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>mod = lm(tg ~ bmi_new, data=chol)
+summary(mod)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise" data-label="mod-summary" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>summary(mod) %&gt;% coef() # get only the table of coefficient estimates
+mod %&gt;% confint() # get confidence intervals for the coefficient estimates. see ?confint()
+summary(mod)$r.squared # get R-squared to compare
+cor(chol$tg, chol$bmi_new, use=&quot;complete&quot;)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>Extract residuals to assess linear model assumptions: - Linearity - Homoscedasticity - Normality</p>
+<div class="tutorial-exercise" data-label="mod-ests" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>resids = mod$residuals # residuals(mod) also works
+preds = mod$fitted.values # fitted(mod) or fitted.values(mod) also works</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Linearity and homoscedasticity can both be assessed on the residuals vs. predicted scatterplot:
+<div class="tutorial-exercise" data-label="resids-linear-homosced" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># resids vs pred
+ggplot(data.frame(resids, preds), aes(x=preds, y=resids)) +
+  geom_point() +
+  geom_abline(slope=0, col=&quot;red&quot;, size=1)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Normality can be assessed on the histogram and the Q-Q plot of the residuals:
+<div class="tutorial-exercise" data-label="resids-hist" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># histogram plot with density overlaid with a normal curve
+ggplot(data.frame(resids), aes(x=resids)) +
+  geom_histogram(aes(y=..density..), bins=30) +
+  stat_function(fun=dnorm, args=list(mean=mean(resids), sd=sd(resids)), 
+                col=&quot;red&quot;, size=1)
+# qqplot
+ggplot(data.frame(resids), aes(sample = resids)) +
+  geom_qq_line(col=&quot;red&quot;, size=1) + 
+  geom_qq()</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Plot the confidence interval for the regression line.
+<div class="tutorial-exercise" data-label="conf-int" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># compute the upper and lower confidence interval for the regression line
+preds.ci = predict(mod, newdata = chol, interval=&quot;confidence&quot;, level = 0.95) %&gt;% data.frame()
+head(preds.ci)
+chol$uci = preds.ci$lwr
+chol$lci = preds.ci$upr
+
+# plot the confidence interval band 
+ggplot(chol, aes(x=bmi_new, y=tg)) +
+    geom_point() +
+    geom_ribbon(aes(ymin = uci, ymax = lci), alpha = 0.2)
+# an easier way to plot the confidence interval band; also includes the regression line
+ggplot(chol, aes(x=bmi_new, y=tg)) +
+    geom_point() +
+    geom_smooth(method=&quot;lm&quot;, level=0.95)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Plot both confidence interval and prediction interval for the regression line
+<div class="tutorial-exercise" data-label="pred-int" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># compute the upper and lower prediction interval for the regression line
+preds.pi = predict(mod, newdata = chol, interval=&quot;predict&quot;, level = 0.95) %&gt;% data.frame()
+head(preds.pi)
+chol$lwr = preds.pi$lwr
+chol$upr = preds.pi$upr
+
+ggplot(data = chol, aes(x = bmi_new, y = tg)) +
+    geom_point() +
+    # geom_ribbon(aes(ymin = uci, ymax = lci), alpha = 0.3) +
+    geom_smooth(method=&#39;lm&#39;, level=0.95, alpha=.3) +
+    geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-binary-predictors" class="section level2">
+<h2>Binary Predictors</h2>
+<p>Following up and comparing to t-test from last lecture, look at chol and sex (then try BMI and sex)</p>
+<div class="tutorial-exercise" data-label="mod2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>mod2 = lm(chol~gender, data=chol)
+summary(mod2)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Compare the p-value of the coefficient for gender to the p-value from the t-test:
+<div class="tutorial-exercise" data-label="t-test" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>t.test(chol ~ gender, data=chol, var.equal=TRUE, alternative=&#39;two.sided&#39;)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+Now try BMI and gender
+<div class="tutorial-exercise" data-label="mod3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="mod3-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>mod3 = lm(bmi_new~gender, data=chol)
+summary(mod3)</code></pre>
+</div>
+<div id="section-working-with-factors-in-r" class="section level3">
+<h3>Working with factors in R</h3>
+By default, R sorts the values and chooses the smallest value as reference (e.g, <code>'Female'</code> as the reference group for gender). Sometimes we would like to use a different group as the reference. This can be done with <code>relevel()</code>.
+<div class="tutorial-exercise" data-label="mod3-relevel" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>chol$gender = relevel(chol$gender, ref=&#39;Male&#39;)
+mod4 = lm(bmi_new~gender, data=chol)
+summary(mod4)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 </div>
 </div>
-<div id="section-data-frames" class="section level2">
-<h2>Data Frames</h2>
-<p><strong>Data frame:</strong> A data frame is a list of vectors which are of equal length. A matrix contains only one type of data, while a data frame accepts different data types (numeric, character, factor, etc.). (guru99)</p>
-<div id="section-creating-a-data-frame" class="section level3">
-<h3>Creating a data frame</h3>
-<p>Run the following code to create and print a data frame:</p>
-<div class="tutorial-exercise" data-label="dfs" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a, b, c, d variables
-a &lt;- c(10,20,30,40)
-b &lt;- c(&#39;book&#39;, &#39;pen&#39;, &#39;textbook&#39;, &#39;pencil_case&#39;)
-c &lt;- c(TRUE,FALSE,TRUE,FALSE)
-d &lt;- c(2.5, 8, 10, 7)
-
-# Join the variables to create a data frame
-df &lt;- data.frame(a,b,c,d)
-df</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-</div>
-<div id="section-naming-columns" class="section level3">
-<h3>Naming columns</h3>
-<p>The following code renames the columns as:</p>
-<ul>
-<li>a = cat</li>
-<li>b = dog</li>
-<li>c = mouse</li>
-<li>d = sheep</li>
-</ul>
-<p>Edit the code so that the names make sense with the data:</p>
-<div class="tutorial-exercise-support" data-label="df_create" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a, b, c, d variables
-a &lt;- c(10,20,30,40)
-b &lt;- c(&#39;book&#39;, &#39;pen&#39;, &#39;textbook&#39;, &#39;pencil_case&#39;)
-c &lt;- c(TRUE,FALSE,TRUE,FALSE)
-d &lt;- c(2.5, 8, 10, 7)
-
-# Join the variables to create a data frame
-df &lt;- data.frame(a,b,c,d)</code></pre>
-</div>
-<div class="tutorial-exercise" data-label="dfs_name" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>names(df) &lt;- c(&quot;cat&quot;, &quot;dog&quot;, &quot;mouse&quot;, &quot;sheep&quot;)
-df</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"df_create","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="dfs_name-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>names(df) &lt;- c(&quot;ID&quot;, &quot;items&quot;, &quot;in-store&quot;, &quot;price&quot;)
-df</code></pre>
-</div>
-</div>
-<div id="section-selecting-rows-and-columns" class="section level3">
-<h3>Selecting rows and columns</h3>
-<p>We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee <code>df</code> with the code <code>df[1,2]</code> which will select row 1 and column 2 of the data frame.</p>
-Print out the third row of the price column:
-<div class="tutorial-exercise-support" data-label="df_create2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a, b, c, d variables
-a &lt;- c(10,20,30,40)
-b &lt;- c(&#39;book&#39;, &#39;pen&#39;, &#39;textbook&#39;, &#39;pencil_case&#39;)
-c &lt;- c(TRUE,FALSE,TRUE,FALSE)
-d &lt;- c(2.5, 8, 10, 7)
-
-# Join the variables to create a data frame
-df &lt;- data.frame(a,b,c,d)
-
-names(df) &lt;- c(&quot;ID&quot;, &quot;items&quot;, &quot;in-store&quot;, &quot;price&quot;)</code></pre>
-</div>
-<div class="tutorial-exercise" data-label="object_select" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"df_create2","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="object_select-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df[3, 3]</code></pre>
-</div>
-<p>You can also select the first entire row with <code>df[1, ]</code> or the entire first column with <code>df[ , 1]</code>. You can also select columns by their name and the <code>$</code> notation.</p>
-Change the following code to select the items column:
-<div class="tutorial-exercise-support" data-label="df_create3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a, b, c, d variables
-a &lt;- c(10,20,30,40)
-b &lt;- c(&#39;book&#39;, &#39;pen&#39;, &#39;textbook&#39;, &#39;pencil_case&#39;)
-c &lt;- c(TRUE,FALSE,TRUE,FALSE)
-d &lt;- c(2.5, 8, 10, 7)
-
-# Join the variables to create a data frame
-df &lt;- data.frame(a,b,c,d)
-
-names(df) &lt;- c(&quot;ID&quot;, &quot;items&quot;, &quot;in-store&quot;, &quot;price&quot;)</code></pre>
-</div>
-<div class="tutorial-exercise" data-label="column_select" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df$price</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"df_create3","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="column_select-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df$items</code></pre>
-</div>
-</div>
-<div id="section-append-a-column" class="section level3">
-<h3>Append a column</h3>
-<p>After we create a data frame, we can add a new column. We do this by creating a vector and then appending it to the end of the data frame.</p>
-<p>The following code creates a vector called “quantity” and adds it to the data frame as a column. Add to this code to create a vector called “student” which contains true/false values:</p>
-<div class="tutorial-exercise-support" data-label="df_create4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a, b, c, d variables
-a &lt;- c(10,20,30,40)
-b &lt;- c(&#39;book&#39;, &#39;pen&#39;, &#39;textbook&#39;, &#39;pencil_case&#39;)
-c &lt;- c(TRUE,FALSE,TRUE,FALSE)
-d &lt;- c(2.5, 8, 10, 7)
-
-# Join the variables to create a data frame
-df &lt;- data.frame(a,b,c,d)
-
-names(df) &lt;- c(&quot;ID&quot;, &quot;items&quot;, &quot;in-store&quot;, &quot;price&quot;)</code></pre>
-</div>
-<div class="tutorial-exercise" data-label="newcolumn" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a new vector
-quantity &lt;- c(10, 35, 40, 5)
-
-# Add `quantity` to the `df` data frame
-df$quantity &lt;- quantity
-df</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["in-store"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["price"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["quantity"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"10","2":"book","3":"TRUE","4":"2.5","5":"10"},{"1":"20","2":"pen","3":"FALSE","4":"8.0","5":"35"},{"1":"30","2":"textbook","3":"TRUE","4":"10.0","5":"40"},{"1":"40","2":"pencil_case","3":"FALSE","4":"7.0","5":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"df_create4","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="newcolumn-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a new vector
-quantity &lt;- c(10, 35, 40, 5)
-
-# Add `quantity` to the `df` data frame
-df$quantity &lt;- quantity
-df
-
-student &lt;- c(T, F, T, F)
-df$student &lt;- student
-df</code></pre>
-</div>
-</div>
-<div id="section-quiz" class="section level3">
-<h3>Quiz</h3>
-<pre class="r"><code>quiz(
-  question(&quot;Choose all that apply. How can I select the second column (named bp) of a data frame?&quot;,
-    answer(&quot;df$bp&quot;, correct=T),
-    answer(&quot;df[2, ]&quot;),
-    answer(&quot;df[ , 2]&quot;, correct=T),
-    answer(&quot;df[2, 2]&quot;)
-  )
-)</code></pre>
-<p><div class="panel-heading tutorial-quiz-title">Quiz</div><div class="panel panel-default">
-<div data-label="quiz-1" class="tutorial-question panel-body">
-<div id="quiz-1-answer_container" class="shiny-html-output"></div>
-<div id="quiz-1-message_container" class="shiny-html-output"></div>
-<div id="quiz-1-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div></p>
-</div>
-</div>
-<div id="section-factor-variables" class="section level2">
-<h2>Factor Variables</h2>
-<p><strong>Factor:</strong> Factors are R’s versions of categorical variables, meaning the variable has a limited amount of possible values and these possible values are usually contained in a finite set.</p>
-<p>Examples:</p>
-<ul>
-<li>Sex <span class="math inline">\(\in\)</span> {Male, Female}</li>
-<li>Asthma <span class="math inline">\(\in\)</span> {Yes, No}</li>
-<li>Age category <span class="math inline">\(\in\)</span> {0-10, 11-20, 21-30, 31-40, &gt;40}</li>
-</ul>
-<p>We’ll use the <code>mtcars</code> dataset to look at factor variables. Run the following code to look at the structure of the dataset:</p>
-<div class="tutorial-exercise" data-label="datasetstructure" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>str(mtcars)</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<p>All of the variables are coded as numerics, but if we look at the values of these variables, some of them could be factors. Potential factors:</p>
-<ul>
-<li>cyl = Number of cylinders; values <span class="math inline">\(\in\)</span> {4, 6, 8}</li>
-<li>vs = Engine; values <span class="math inline">\(\in\)</span> {0=V-shaped, 1=straight}</li>
-<li>am = Transmission; values <span class="math inline">\(\in\)</span> {0=automatic, 1=manual}</li>
-<li>gear = Number of forward gears; values <span class="math inline">\(\in\)</span> {3, 4, 5}</li>
-<li>carb = Number of carburetors; values <span class="math inline">\(\in\)</span> {1, 2, 3, 4, 6, 8}</li>
-</ul>
-<p>Let’s focus on number of cylinders and engine type. To work with these variables more appropriately, we need to change them into factors. The basic syntax for the <code>factor()</code> function is this: <code>factor(x = character(), levels, labels = levels, ordered = is.ordered(x))</code></p>
-<ul>
-<li><em>x</em> should be a vector of data to change into a factor</li>
-<li><em>levels</em> is the possible values of x</li>
-<li><em>labels</em> are the labels to place on these levels</li>
-<li><em>ordered</em> tells us whether there is an inherent ordering to the levels</li>
-</ul>
-<p>The <code>gear</code> variable has a very similar structure to the <code>cyl</code> variable. Augment the following code to make it work for the <code>cyl</code> variable:</p>
-<div class="tutorial-exercise" data-label="factor_nolabel" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>mtcars$gear &lt;- factor(mtcars$gear, levels=c(3,4,5), ordered=T)</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="factor_nolabel-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>mtcars$cyl &lt;- factor(mtcars$cyl, levels=c(4,6,8), ordered=T)</code></pre>
-</div>
-<p>We didn’t use labels for this one since the labels would just be the same as the levels.</p>
-<p>The <code>am</code> variable has a very similar structure to the <code>vs</code> variable. Augment the following code to make it work for the <code>vs</code> variable:</p>
-<div class="tutorial-exercise" data-label="factor_label" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>mtcars$am &lt;- factor(mtcars$am, levels=c(0,1), labels=c(&quot;automatic&quot;,&quot;manual&quot;), ordered=F)</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="factor_label-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>mtcars$vs &lt;- factor(mtcars$vs, levels=c(0,1), labels=c(&quot;V-shaped&quot;,&quot;straight&quot;), ordered=F)</code></pre>
-</div>
-<p>Now look at the structure of the dataset again and see what’s changed.</p>
-<div class="tutorial-exercise" data-label="datasetstructure2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="datasetstructure2-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>str(mtcars)</code></pre>
-</div>
-<p>Why does it matter? It’s important to have variables in their correct form when using modelling commands, and it also gives a lot of extra options when creating graphs. ## Plot In this section, we will use the <code>mtcars</code> data set to show how to plot in R. Let’s read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
-<pre class="r"><code>data(&quot;mtcars&quot;)
-mtcars &lt;- within(mtcars, {
-   vs &lt;- factor(vs, labels = c(&quot;V&quot;, &quot;S&quot;))
-   am &lt;- factor(am, labels = c(&quot;automatic&quot;, &quot;manual&quot;))
-   cyl  &lt;- ordered(cyl)
-   gear &lt;- ordered(gear)
-   carb &lt;- ordered(carb)
-})</code></pre>
-</div>
-<div id="section-plot" class="section level2">
-<h2>Plot</h2>
-<div id="section-scatter-plot" class="section level3">
-<h3>1. Scatter plot</h3>
-<p>A scatter plot can reveal the patterns of correlation between two variables. For <code>mtcars</code>, <code>hp</code> represents the horsepower of the automobiles and <code>qsec</code> is the 1/4 mile time. We now use a scatter plot to explore the relationship between these two variables.</p>
-<pre class="r"><code>plot(mtcars$hp, mtcars$qsec)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-6-1.png" width="624" /></p>
-<p>As horse power increases, the time the vehicle spends on 1/4 mile decreases. Or we can say the 1/4 mile time is negatively associated with the horse power.</p>
-Now it’s your turn to explore the relationship between miles per gallon (<code>mpg</code>) and horse power (<code>hp</code>).
-<div class="tutorial-exercise" data-label="scatter" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="scatter-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>plot(x = mtcars$mpg, y = mtcars$hp)</code></pre>
-</div>
-</div>
-<div id="section-histogram" class="section level3">
-<h3>2. Histogram</h3>
-<p>A histogram is a graphical display of continuous data using bars of different heights. The height of bar represents the number of observations in a specific data range. We can use histogram to determine the statistical distribution of the variable of interest. For example, let’s plot the histogram of <code>mpg</code> by function <code>hist</code>.</p>
-<pre class="r"><code>hist(mtcars$mpg)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-7-1.png" width="624" /></p>
-<p>We can change the label, title and the color of specifying a few additional parameters.</p>
-<pre class="r"><code>hist(mtcars$mpg, main = &quot;Histogram of miles per gallon&quot;, xlab = &quot;miles per gallon (mpg)&quot;, col = &quot;blue&quot;)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-8-1.png" width="624" /></p>
-<p>Here, <code>main</code> change the titles as you want, <code>xlab</code> specifies the label of x-axis and <code>col</code> changes the fill color of the bar. Actually, these additional parameters are shared by most generic plot function in R. Refer to <a href="https://www.statmethods.net/advgraphs/parameters.html">Graphical Parameters</a> for more details.</p>
-Next, plot the histogram of horsepower <code>hp</code>. Specify the histogram title as “Histogram of horsepower” and the label of x-axis as “horse power”. Fill the bar by color “red”. Does the shape of histogram of horse power differ from that of the <code>mpg</code>?
-<div class="tutorial-exercise" data-label="hist" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="hist-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>hist(mtcars$mpg, main = &quot;Histogram of horsepower&quot;, xlab = &quot;horsepower&quot;, col = &quot;red&quot;)</code></pre>
-</div>
-</div>
-<div id="section-barplot" class="section level3">
-<h3>3. Barplot</h3>
-<p>Similar to the histogram, barplot exhibits the counts of a categorical variable. However, before we use the function <code>barplot</code> in R, we need to first create a count table for the categorical variable. This is achieved by the function <code>table()</code>.</p>
-<pre class="r"><code>counts &lt;- table(mtcars$gear)
-counts</code></pre>
-<pre><code>## 
-##  3  4  5 
-## 15 12  5</code></pre>
-<p>15 automobiles have 3 forward gears, 14 have 4 and only 5 have 5. Now we can use the <code>barplot()</code> function to create barplot.</p>
-<pre class="r"><code>barplot(counts, main=&quot;Barplot of forward gear&quot;,
-   xlab=&quot;Number of Gears&quot;)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-10-1.png" width="624" /></p>
-Try to find out which 5 vehicles have 5 forward gear and then plot a barplot for the number of carburetors <code>carb</code>.
-<div class="tutorial-exercise" data-label="barplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># which vehicle has 5 forward gear?
-
-# barplot for carb</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="barplot-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># which vehicle has 5 forward gear?
-mtcars[mtcars$gear == 5, ]
-# barplot for carb
-counts &lt;- table(mtcars$carb)
-barplot(counts, main=&quot;Barplot of number of carbs&quot;,
-   xlab=&quot;Number of carbs&quot;)</code></pre>
-</div>
-</div>
-<div id="section-boxplot" class="section level3">
-<h3>4. Boxplot</h3>
-<p>A boxplot is a method for graphically depicting groups of numerical data through their quartiles. From the bottom to the top, the line of boxplot represents minimum (excluding outliers), first quartile (Q1, or 25% percentile), median (Q2, or 50% percentile), third quartile (Q3, or 75% quartile). Boxplots can be created for individual variables or for variables by group. For example, we can create a boxplot of pooled <code>mpg</code> by using function <code>boxplot</code></p>
-<pre class="r"><code>boxplot(mtcars$mpg, main = &quot;Boxplot of mpg&quot;)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-11-1.png" width="624" /> Alternatively, we can create a boxplot by group. Still take the <code>mpg</code> as an example and draw boxplots of <code>mpg</code> by the number of cylinders <code>cly</code>.</p>
-<pre class="r"><code>boxplot(mpg ~ cyl, data = mtcars, main = &quot;Boxplot of mpg by cylinder group&quot;, xlab = &quot;Number of Cylinders&quot;, ylab = &quot;Miles Per Gallon&quot;)</code></pre>
-<p><img src="Introduction-to-R-programming_files/figure-html/unnamed-chunk-12-1.png" width="624" /></p>
-<p>Here <code>mpg ~ cyl</code> represents creating a boxplot of mpg by group of cylinders. Parameter <code>data</code> tells the function <code>boxplot</code> which data set we want to use. Besides, you may have noticed, <code>ylab</code> chage the label of y-axis just the same as <code>xlab</code>.</p>
-Now let’s explore the relationship between horsepower and number of cylinders. Do not forget to specify the labels of the x-axis and y-axis and also add titles to your boxplot.
-<div class="tutorial-exercise" data-label="boxplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
-<div class="tutorial-exercise-support" data-label="boxplot-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>boxplot(hp ~ cyl, data = mtcars, main = &quot;Boxplot of horsepower by cylinder group&quot;, xlab = &quot;Number of Cylinders&quot;, ylab = &quot;Horsepower&quot;)</code></pre>
-</div>
-</div>
-</div>
-<div id="section-r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<div id="section-overview" class="section level3">
-<h3>Overview</h3>
-<p>R markdown is a markdown file system tailored for data science community. It could display and execute R codes and generate reproducible report that is easy to communicate and share. Here, I’ll show you the examples of R markdown report and the workflow of R markdown system.</p>
-</div>
-<div id="section-installation" class="section level3">
-<h3>Installation</h3>
-<p>Like many other functions of R, R markdown is also warped in the form of package. To install it from CRAN, use the following code:</p>
-<pre class="r"><code>install.packages(&quot;rmarkdown&quot;)</code></pre>
-</div>
-<div id="section-step-1-create-a-new-r-markdown-file" class="section level3">
-<h3>Step 1: Create a new R markdown file</h3>
-<p>To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which coulb be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.</p>
-<p><img src="images/step1.png" width="500" /></p>
-</div>
-<div id="section-step-2-write-your-r-markdown-document" class="section level3">
-<h3>Step 2: Write your R markdown document</h3>
-<p>You can write in the markdwon file just as in MS Word. The plain text will be rendered into words while some special syntax will be rendered into title, bold text, web links etc. For example, <code>## R Markdown</code> is rendered into a header in the output. The best property of R markdown is inclusion of R codes. You can insert the executable code chunk by <code>control + option + I</code> in Mac or <code>shift + alt + I</code> in Windows. Such codes can be integrated into the output file along with their output. For example, we summarize the <code>cars</code> data in the code chunk by call the function <code>summary</code>. After rendering it into an html file, we shall see the original R codes and the summary of <code>cars</code>.</p>
-<p><img src="images/step2.png" width="500" /></p>
-</div>
-<div id="section-step-3-knit-the-r-markdown-file-and-communicate-your-work" class="section level3">
-<h3>Step 3: Knit the R markdown file and communicate your work</h3>
-<p>After finish your write up, you can render the raw R markdown file into a high quality report. Click the <code>knit</code> button in the red circle. The <code>R Markdown</code> tab will display the log during rendering. If there are any bugs in your codes, the log will tell you where it is. Then you go back to your R markdown script and debug. Once you succeed, R studio will prompt another window to display the output.</p>
-<p><img src="images/step3.png" width="500" /></p>
-</div>
-<div id="section-insert-math-equations" class="section level3">
-<h3>Insert math equations</h3>
-<p>R markdown support syntax of LaTeX. The text between two dollar signs will be treated as LaTeX syntax. For example, <code>$\sum_i p_i = 1$</code> will be rendered into <span class="math inline">\(\sum_i p_i = 1\)</span> in the output file. It takes a while to study the grammar of LaTeX. However, once you master it, you will find it extremely convenient to present your research work in a publishable report together with your codes and plots. For a brief tutorial of mathematical expression of LaTeX, you can refer to the <a href="https://www.overleaf.com/learn/latex/mathematical_expressions">help page of Overleaf</a>, which is a popular online editor of LaTeX.</p>
-</div>
-<div id="section-further-references" class="section level3">
-<h3>Further references</h3>
+<div id="section-exercises" class="section level2">
+<h2>Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>A <a href="https://www.youtube.com/watch?v=DNS7i2m4sB0">video demo</a> of R markdwon by Roger Peng</li>
-<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.253189193.1176129760.1594402129-1703257209.1582172301">Official syntax reference of R markdown</a> 
+<li><p>Repeat the two-variable exploratory data analysis and correlation analysis for bmi_new against 3 other continuous variables (e.g., age, sbp, hdl, ldl, etc.).</p></li>
+<li><p>Fit simple linear regression models between bmi_new and each of the 3 variables you chose in Q1. Fit these individually, not jointly. Assess linear model assumptions for the models you fitted.</p></li>
+<li><p>Create a new binary variable for two age groups above and below the sample median age. Repeat simple linear regression with a binary predictor between bmi_new and the new avariable. (Hint: <code>chol$agegrp &lt;- ifelse(chol$age &gt; median(chol$age), 0, 1)</code>).</p></li>
+</ol>
+
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+library(USCdata)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -675,118 +302,114 @@ session$onSessionEnded(function() {
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-variable-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-variable-code-editor`)), session)
-output$`tutorial-exercise-variable-output` <- renderUI({
-  `tutorial-exercise-variable-result`()
+`tutorial-exercise-read_data-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-read_data-code-editor`)), session)
+output$`tutorial-exercise-read_data-output` <- renderUI({
+  `tutorial-exercise-read_data-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-paste-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-paste-code-editor`)), session)
-output$`tutorial-exercise-paste-output` <- renderUI({
-  `tutorial-exercise-paste-result`()
+`tutorial-exercise-scatterplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-scatterplot-code-editor`)), session)
+output$`tutorial-exercise-scatterplot-output` <- renderUI({
+  `tutorial-exercise-scatterplot-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-operators-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-operators-code-editor`)), session)
-output$`tutorial-exercise-operators-output` <- renderUI({
-  `tutorial-exercise-operators-result`()
+`tutorial-exercise-cor-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-cor-code-editor`)), session)
+output$`tutorial-exercise-cor-output` <- renderUI({
+  `tutorial-exercise-cor-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-dfs-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-dfs-code-editor`)), session)
-output$`tutorial-exercise-dfs-output` <- renderUI({
-  `tutorial-exercise-dfs-result`()
+`tutorial-exercise-cor2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-cor2-code-editor`)), session)
+output$`tutorial-exercise-cor2-output` <- renderUI({
+  `tutorial-exercise-cor2-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-dfs_name-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-dfs_name-code-editor`)), session)
-output$`tutorial-exercise-dfs_name-output` <- renderUI({
-  `tutorial-exercise-dfs_name-result`()
+`tutorial-exercise-exercise1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-exercise1-code-editor`)), session)
+output$`tutorial-exercise-exercise1-output` <- renderUI({
+  `tutorial-exercise-exercise1-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-object_select-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-object_select-code-editor`)), session)
-output$`tutorial-exercise-object_select-output` <- renderUI({
-  `tutorial-exercise-object_select-result`()
+`tutorial-exercise-mod-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod-code-editor`)), session)
+output$`tutorial-exercise-mod-output` <- renderUI({
+  `tutorial-exercise-mod-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-column_select-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-column_select-code-editor`)), session)
-output$`tutorial-exercise-column_select-output` <- renderUI({
-  `tutorial-exercise-column_select-result`()
+`tutorial-exercise-mod-summary-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod-summary-code-editor`)), session)
+output$`tutorial-exercise-mod-summary-output` <- renderUI({
+  `tutorial-exercise-mod-summary-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-newcolumn-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-newcolumn-code-editor`)), session)
-output$`tutorial-exercise-newcolumn-output` <- renderUI({
-  `tutorial-exercise-newcolumn-result`()
+`tutorial-exercise-mod-ests-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod-ests-code-editor`)), session)
+output$`tutorial-exercise-mod-ests-output` <- renderUI({
+  `tutorial-exercise-mod-ests-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "quiz-1", question = structure("Choose all that apply. How can I select the second column (named bp) of a data frame?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_6b0a23f",     option = "df$bp", value = "df$bp", label = structure("df$bp", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6bd364f",     option = "df[2, ]", value = "df[2, ]", label = structure("df[2, ]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_80f2624",     option = "df[ , 2]", value = "df[ , 2]", label = structure("df[ , 2]", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a76a0f4",     option = "df[2, 2]", value = "df[2, 2]", label = structure("df[2, 2]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "quiz-1-answer", question = "quiz-1"), loading = structure("<strong>Loading:<\u002fstrong> \nChoose all that apply. How can I select the second column (named bp) of a data frame?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 1123750371.97671, options = list()), class = c("learnr_checkbox", "tutorial_question")))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-datasetstructure-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-datasetstructure-code-editor`)), session)
-output$`tutorial-exercise-datasetstructure-output` <- renderUI({
-  `tutorial-exercise-datasetstructure-result`()
+`tutorial-exercise-resids-linear-homosced-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-resids-linear-homosced-code-editor`)), session)
+output$`tutorial-exercise-resids-linear-homosced-output` <- renderUI({
+  `tutorial-exercise-resids-linear-homosced-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-factor_nolabel-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-factor_nolabel-code-editor`)), session)
-output$`tutorial-exercise-factor_nolabel-output` <- renderUI({
-  `tutorial-exercise-factor_nolabel-result`()
+`tutorial-exercise-resids-hist-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-resids-hist-code-editor`)), session)
+output$`tutorial-exercise-resids-hist-output` <- renderUI({
+  `tutorial-exercise-resids-hist-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-factor_label-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-factor_label-code-editor`)), session)
-output$`tutorial-exercise-factor_label-output` <- renderUI({
-  `tutorial-exercise-factor_label-result`()
+`tutorial-exercise-conf-int-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-conf-int-code-editor`)), session)
+output$`tutorial-exercise-conf-int-output` <- renderUI({
+  `tutorial-exercise-conf-int-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-datasetstructure2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-datasetstructure2-code-editor`)), session)
-output$`tutorial-exercise-datasetstructure2-output` <- renderUI({
-  `tutorial-exercise-datasetstructure2-result`()
+`tutorial-exercise-pred-int-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-pred-int-code-editor`)), session)
+output$`tutorial-exercise-pred-int-output` <- renderUI({
+  `tutorial-exercise-pred-int-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-scatter-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-scatter-code-editor`)), session)
-output$`tutorial-exercise-scatter-output` <- renderUI({
-  `tutorial-exercise-scatter-result`()
+`tutorial-exercise-mod2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod2-code-editor`)), session)
+output$`tutorial-exercise-mod2-output` <- renderUI({
+  `tutorial-exercise-mod2-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-hist-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-hist-code-editor`)), session)
-output$`tutorial-exercise-hist-output` <- renderUI({
-  `tutorial-exercise-hist-result`()
+`tutorial-exercise-t-test-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-t-test-code-editor`)), session)
+output$`tutorial-exercise-t-test-output` <- renderUI({
+  `tutorial-exercise-t-test-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-barplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-barplot-code-editor`)), session)
-output$`tutorial-exercise-barplot-output` <- renderUI({
-  `tutorial-exercise-barplot-result`()
+`tutorial-exercise-mod3-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod3-code-editor`)), session)
+output$`tutorial-exercise-mod3-output` <- renderUI({
+  `tutorial-exercise-mod3-result`()
 })
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-boxplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-boxplot-code-editor`)), session)
-output$`tutorial-exercise-boxplot-output` <- renderUI({
-  `tutorial-exercise-boxplot-result`()
+`tutorial-exercise-mod3-relevel-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mod3-relevel-code-editor`)), session)
+output$`tutorial-exercise-mod3-relevel-output` <- renderUI({
+  `tutorial-exercise-mod3-relevel-result`()
 })
 </script>
  <!--html_preserve-->
@@ -796,11 +419,9 @@ output$`tutorial-exercise-boxplot-output` <- renderUI({
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]}},"value":[{"type":"character","attributes":{},"value":["backports","base","checkmate","compiler","datasets","digest","ellipsis","evaluate","fastmap","graphics","grDevices","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","magrittr","markdown","methods","mime","promises","R6","Rcpp","rlang","rmarkdown","rprojroot","shiny","stats","stringi","stringr","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.8","3.6.2","2.0.0","3.6.2","3.6.2","0.6.25","0.3.1","0.14","1.0.1","3.6.2","3.6.2","0.5.0","1.5.1","1.5.4","1.7.0","1.29","1.1.0.1","0.10.1","1.5","1.1","3.6.2","0.9","1.1.1","2.4.1","1.0.4.6","0.4.6","2.3","1.3-2","1.5.0","3.6.2","1.4.6","1.4.0","3.6.2","3.6.2","2.2.0","0.15","1.8-4","2.2.1"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55]}},"value":[{"type":"character","attributes":{},"value":["backports","base","colorspace","compiler","crayon","datasets","digest","dplyr","ellipsis","evaluate","fastmap","generics","ggplot2","glue","graphics","grDevices","grid","gtable","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","lifecycle","magrittr","markdown","methods","mime","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","rlang","rmarkdown","rprojroot","scales","shiny","stats","stringi","stringr","tibble","tidyselect","tools","USCdata","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.8","3.6.2","1.4-1","3.6.2","1.3.4","3.6.2","0.6.25","1.0.0","0.3.1","0.14","1.0.1","0.0.2","3.3.2","1.4.1","3.6.2","3.6.2","3.6.2","0.3.0","0.5.0","1.5.1","1.5.4","1.7.0","1.29","1.1.0.1","0.10.1","0.2.0","1.5","1.1","3.6.2","0.9","0.5.0","1.4.4","2.0.3","1.1.1","0.3.4","2.4.1","1.0.4.6","0.4.6","2.3","1.3-2","1.1.1","1.5.0","3.6.2","1.4.6","1.4.0","3.0.1","1.1.0","3.6.2","0.1.0","3.6.2","0.3.1","2.2.0","0.15","1.8-4","2.2.1"]}]}]}
 </script>
-<!--/html_preserve--></li>
-</ol>
-</div>
+<!--/html_preserve-->
 </div>
 
 </div> <!-- topics -->
@@ -812,8 +433,7 @@ output$`tutorial-exercise-boxplot-output` <- renderUI({
 
 <!-- begin doc-metadata -->
 <div id="doc-metadata">
-<h2 class="title toc-ignore" style="display:none;">Introduction to R Programming</h2>
-<h4 class="author"><em>Yinqi Zhao (<a href="mailto:yinqiz@usc.edu" class="email">yinqiz@usc.edu</a>), Katelyn Queen</em></h4>
+<h2 class="title toc-ignore" style="display:none;">Tutorial</h2>
 </div>
 <!-- end doc-metadata -->
 
