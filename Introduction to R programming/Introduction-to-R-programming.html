@@ -117,8 +117,8 @@ $(document).ready(function () {
 
 <div class="topics">
 
-<div id="section-introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="section-welcome" class="section level2">
+<h2>Welcome</h2>
 <p>Welcome to the LA’s BEST summer camp! In this lab, we will learn R, one of the most popular programming languages in the world of data.</p>
 <p>R is a high-level computer language developed by Ross Ihaka and Robert Gentleman in 1993. It provides a comprehensive tool kits of statistical analysis and a variety of communicating techniques to present and share the work (graphics of publish quality, LaTeX-style documentations, interactive shiny apps, …). The most exciting feature of R is a user-friendly library management system. You can extend R functionality by install <em>packages</em> into your library (which will be covered later). With the help of <em>packages</em>, you can not only conduct the most cutting-edge data analysis, but also create animation plots, write books and build your own personal website.</p>
 <div class="figure">
@@ -152,16 +152,17 @@ $(document).ready(function () {
 </div>
 <div id="section-install-rstudio" class="section level3">
 <h3>Install Rstudio</h3>
-<p>Now you’ve already had R on your laptop. However, the default R editor and environment are hard to use. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let’s install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of <a href="https://rstudio.com/products/rstudio/download/#download">Rstudio</a>. usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.</p>
+<p>Now you’ve already had R on your laptop. However, the default R editor is hard to use. To enjoy a more user-friendly editor of R, let’s install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of <a href="https://rstudio.com/products/rstudio/download/#download">Rstudio</a>. usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.</p>
 <div class="figure">
 <img src="images/installRstudio.png" width="500" alt="" />
 <p class="caption">Fig4: Download Rstudio</p>
 </div>
 </div>
 </div>
-<div id="section-get-started-with-rstudio" class="section level2">
-<h2>Get started with Rstudio</h2>
-<p>Rstudio is the most popular Integrated Development Environment (IDE) of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. A typical Rstudio interface looks like this:</p>
+<div id="section-introduction-to-rstudio" class="section level2">
+<h2>Introduction to Rstudio</h2>
+<p>The goal of this part is to learn how to write codes, organize files and read outputs from Rstudio. As mentioned before, Rstudio is the most popular IDE of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. Rstudio contains a lot of features especially designed for data scientist.</p>
+<p>A typical Rstudio interface looks like this:</p>
 <div class="figure">
 <img src="images/Rstudio%20interface.png" width="600" alt="" />
 <p class="caption">An exmaple of Rstudio User Interface</p>
@@ -237,7 +238,7 @@ $(document).ready(function () {
 <h3>Variables</h3>
 <p>As future data scientist, the first thing we need to do is to store data into an object. Such object is usually called <em>variable</em> in programming. In R, a variable not only stores data, but also keeps statistical models, predictions, and basically any R output. It’s simple to create a variable: just come up with a unique name then add a value to it by using <code>&lt;-</code> or <code>=</code>. (variable name can be a combination of <code>character</code>, <code>number</code>, <code>.</code> and <code>_</code>, however, it should start with a character).</p>
 <pre class="r"><code>year &lt;- 2020
-program &lt;- &quot;LA.BSET&quot;</code></pre>
+program &lt;- &quot;LAs.BSET&quot;</code></pre>
 We create 2 types of variables: one is numeric labeled with name <code>year</code> and the other is a character whose name is <code>program</code>. In R, any value quoted by <code>"</code> or <code>'</code> is treated as character. Now try to create some variables and display them in the console.
 <div class="tutorial-exercise" data-label="variable" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="4">
 <pre class="text"><code>lastyear &lt;- 2019
@@ -378,7 +379,7 @@ df</code></pre>
 </div>
 <div id="section-selecting-rows-and-columns" class="section level3">
 <h3>Selecting rows and columns</h3>
-<p>We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee <code>df</code> with the code <code>df[1,2]</code> which will select row 1 and column 2 of the data frame.</p>
+<p>We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data frame <code>df</code> with the code <code>df[1,2]</code> which will select row 1 and column 2 of the data frame.</p>
 Print out the third row of the price column:
 <div class="tutorial-exercise-support" data-label="df_create2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code># Create a, b, c, d variables
@@ -445,7 +446,7 @@ df$quantity &lt;- quantity
 df</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["in-store"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["price"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["quantity"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"10","2":"book","3":"TRUE","4":"2.5","5":"10"},{"1":"20","2":"pen","3":"FALSE","4":"8.0","5":"35"},{"1":"30","2":"textbook","3":"TRUE","4":"10.0","5":"40"},{"1":"40","2":"pencil_case","3":"FALSE","4":"7.0","5":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["chr"],"align":["left"]},{"label":["in-store"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["price"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["quantity"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"10","2":"book","3":"TRUE","4":"2.5","5":"10"},{"1":"20","2":"pen","3":"FALSE","4":"8.0","5":"35"},{"1":"30","2":"textbook","3":"TRUE","4":"10.0","5":"40"},{"1":"40","2":"pencil_case","3":"FALSE","4":"7.0","5":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.setup":"df_create4","exercise.checker":"NULL"}</script>
@@ -465,14 +466,6 @@ df</code></pre>
 </div>
 <div id="section-quiz" class="section level3">
 <h3>Quiz</h3>
-<pre class="r"><code>quiz(
-  question(&quot;Choose all that apply. How can I select the second column (named bp) of a data frame?&quot;,
-    answer(&quot;df$bp&quot;, correct=T),
-    answer(&quot;df[2, ]&quot;),
-    answer(&quot;df[ , 2]&quot;, correct=T),
-    answer(&quot;df[2, 2]&quot;)
-  )
-)</code></pre>
 <p><div class="panel-heading tutorial-quiz-title">Quiz</div><div class="panel panel-default">
 <div data-label="quiz-1" class="tutorial-question panel-body">
 <div id="quiz-1-answer_container" class="shiny-html-output"></div>
@@ -536,7 +529,11 @@ df</code></pre>
 <div class="tutorial-exercise-support" data-label="datasetstructure2-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>str(mtcars)</code></pre>
 </div>
-<p>Why does it matter? It’s important to have variables in their correct form when using modelling commands, and it also gives a lot of extra options when creating graphs. ## Plot In this section, we will use the <code>mtcars</code> data set to show how to plot in R. Let’s read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
+<p>Why does it matter? It’s important to have variables in their correct form when using modelling commands, and it also gives a lot of extra options when creating graphs.</p>
+</div>
+<div id="section-plot" class="section level2">
+<h2>Plot</h2>
+<p>In this section, we will use the <code>mtcars</code> data set to show how to plot in R. Let’s read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
 <pre class="r"><code>data(&quot;mtcars&quot;)
 mtcars &lt;- within(mtcars, {
    vs &lt;- factor(vs, labels = c(&quot;V&quot;, &quot;S&quot;))
@@ -545,9 +542,6 @@ mtcars &lt;- within(mtcars, {
    gear &lt;- ordered(gear)
    carb &lt;- ordered(carb)
 })</code></pre>
-</div>
-<div id="section-plot" class="section level2">
-<h2>Plot</h2>
 <div id="section-scatter-plot" class="section level3">
 <h3>1. Scatter plot</h3>
 <p>A scatter plot can reveal the patterns of correlation between two variables. For <code>mtcars</code>, <code>hp</code> represents the horsepower of the automobiles and <code>qsec</code> is the 1/4 mile time. We now use a scatter plot to explore the relationship between these two variables.</p>
@@ -637,7 +631,7 @@ Now let’s explore the relationship between horsepower and number of cylinders.
 </div>
 <div id="section-step-1-create-a-new-r-markdown-file" class="section level3">
 <h3>Step 1: Create a new R markdown file</h3>
-<p>To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which coulb be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.</p>
+<p>To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which could be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.</p>
 <p><img src="images/step1.png" width="500" /></p>
 </div>
 <div id="section-step-2-write-your-r-markdown-document" class="section level3">
@@ -731,7 +725,7 @@ output$`tutorial-exercise-newcolumn-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "quiz-1", question = structure("Choose all that apply. How can I select the second column (named bp) of a data frame?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_6b0a23f",     option = "df$bp", value = "df$bp", label = structure("df$bp", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6bd364f",     option = "df[2, ]", value = "df[2, ]", label = structure("df[2, ]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_80f2624",     option = "df[ , 2]", value = "df[ , 2]", label = structure("df[ , 2]", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a76a0f4",     option = "df[2, 2]", value = "df[2, 2]", label = structure("df[2, 2]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "quiz-1-answer", question = "quiz-1"), loading = structure("<strong>Loading:<\u002fstrong> \nChoose all that apply. How can I select the second column (named bp) of a data frame?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 1123750371.97671, options = list()), class = c("learnr_checkbox", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "quiz-1", question = structure("Choose all that apply. How can I select the second column (named bp) of a data frame?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_8a037d",     option = "df$bp", value = "df$bp", label = structure("df$bp", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9cdcc",     option = "df[2, ]", value = "df[2, ]", label = structure("df[2, ]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a8764a7",     option = "df[ , 2]", value = "df[ , 2]", label = structure("df[ , 2]", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f34bd36",     option = "df[2, 2]", value = "df[2, 2]", label = structure("df[2, 2]", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "quiz-1-answer", question = "quiz-1"), loading = structure("<strong>Loading:<\u002fstrong> \nChoose all that apply. How can I select the second column (named bp) of a data frame?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 1782628559.6699, options = list()), class = c("learnr_checkbox", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -796,7 +790,7 @@ output$`tutorial-exercise-boxplot-output` <- renderUI({
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]}},"value":[{"type":"character","attributes":{},"value":["backports","base","checkmate","compiler","datasets","digest","ellipsis","evaluate","fastmap","graphics","grDevices","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","magrittr","markdown","methods","mime","promises","R6","Rcpp","rlang","rmarkdown","rprojroot","shiny","stats","stringi","stringr","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.8","3.6.2","2.0.0","3.6.2","3.6.2","0.6.25","0.3.1","0.14","1.0.1","3.6.2","3.6.2","0.5.0","1.5.1","1.5.4","1.7.0","1.29","1.1.0.1","0.10.1","1.5","1.1","3.6.2","0.9","1.1.1","2.4.1","1.0.4.6","0.4.6","2.3","1.3-2","1.5.0","3.6.2","1.4.6","1.4.0","3.6.2","3.6.2","2.2.0","0.15","1.8-4","2.2.1"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]}},"value":[{"type":"character","attributes":{},"value":["backports","base","checkmate","compiler","datasets","digest","ellipsis","evaluate","fastmap","graphics","grDevices","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","magrittr","markdown","methods","mime","promises","R6","Rcpp","rlang","rmarkdown","rprojroot","shiny","stats","stringi","stringr","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.8","4.0.2","2.0.0","4.0.2","4.0.2","0.6.25","0.3.1","0.14","1.0.1","4.0.2","4.0.2","0.5.0","1.5.1","1.5.4","1.7.0","1.29","1.1.0.1","0.10.1","1.5","1.1","4.0.2","0.9","1.1.1","2.4.1","1.0.5","0.4.7","2.3","1.3-2","1.5.0","4.0.2","1.4.6","1.4.0","4.0.2","4.0.2","2.2.0","0.15","1.8-4","2.2.1"]}]}]}
 </script>
 <!--/html_preserve--></li>
 </ol>

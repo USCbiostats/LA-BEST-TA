@@ -1,0 +1,75 @@
+---
+title: "Demo of flexbashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    storyboard: TRUE
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(LUCIDus)
+```
+
+
+### Visualize the LUCID model. The LUCID model is illustrated based on a Sankey diagram and constructed throgh D3.js graph library
+```{r}
+invisible(capture.output(fit <- est.lucid(G = sim1[, 1:10], Z = sim1[, 11:20], Y = as.matrix(sim1[, 21]))))
+plot(fit)
+```
+
+*** 
+Project Homepage: https://github.com/Yinqi93/LUCIDus
+
+Details about LUCID:
+
+The Latent Unknown Clustering Integrating multi-omics Data (LUCID) is a model-based clustering method which jointly estimates the latent clustering structure and the association between the cluster and the outcome of interest. It provides insight of the correlations among genomic data, gene expression and disease phenotype. Currently, LUCID is implemented through the R package LUCIDus hosted by CRAN. The developing version is also available on Github(see homepage). The latest version of LUCID (2.1.0) features a complete statistical analysis toolkit including:
+
+- Clustering estimation
+
+- Model visualization by a Sankey diagram
+
+- Variable selection procedure for both genomics data and gene expression data
+
+- Ability to incorporating the missing data in gene expression
+
+- Model inference based on bootstrap
+
+### Animated plots by plotly, which binds the plotly.js library and convert your ggplot2 object into interactive html widgets. 
+```{r}
+library(plotly)
+library(gapminder)
+p <- ggplot(gapminder, aes(gdpPercap, lifeExp, color = continent)) +
+  geom_point(aes(size = pop, frame = year, ids = country)) +
+  scale_x_log10()
+fig <- ggplotly(p)
+fig
+```
+
+***
+https://plotly.com/ggplot2/
+
+Plotly allows to build charts thanks to it plot_ly() function. It offers several type option. surface allows to make surface plots and expect a matrix as input.
+
+Rows and columns actually describe a grid, and the cell value will be mapped to the surface height. Once the chart is done, you can hover and zoom on the chart for more details.
+
+### Dygraphs provides interactive features to present time-series data
+```{r}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths) %>%
+  dySeries("mdeaths", label = "Male") %>%
+  dySeries("fdeaths", label = "Female") %>%
+  dyOptions(stackedGraph = TRUE) %>%
+  dyRangeSelector(height = 20)
+```
+
+***
+The dygraphs package is an R interface to the dygraphs JavaScript charting library. It provides rich facilities for charting time-series data in R, including:
+
+- Automatically plots xts time series objects (or any object convertible to xts).
+- Highly configurable axis and series display (including optional second Y-axis).
+- Rich interactive features including zoom/pan and series/point highlighting.
+- Display upper/lower bars (e.g. prediction intervals) around series.
+

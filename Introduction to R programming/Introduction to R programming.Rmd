@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-## Introduction
+## Welcome
 Welcome to the LA's BEST summer camp! In this lab, we will learn R, one of the most popular programming languages in the world of data. 
 
 R is a high-level computer language developed by Ross Ihaka and Robert Gentleman in 1993. It provides a comprehensive tool kits of statistical analysis and a variety of communicating techniques to present and share the work (graphics of publish quality, LaTeX-style documentations, interactive shiny apps, ...). The most exciting feature of R is a user-friendly library management system. You can extend R functionality by install *packages* into your library (which will be covered later). With the help of *packages*, you can not only conduct the most cutting-edge data analysis, but also create animation plots, write books and build your own personal website.
@@ -19,6 +19,7 @@ R is a high-level computer language developed by Ross Ihaka and Robert Gentleman
 ![An example of the powerful R graphics library. You can learn more about it in [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)](images/example of plot.png){width=400px}
 
 This tutorial will cover the basic stuff of R for beginners of diverse background. Don't worry, no prior knowledge is required to learn R. R is not hard and full of fun!
+
 
 ## Install R and Rstudio
 To dive into the world of R programming, firstly, you need to install R on your computer and set up the coding environment. Go directly to the official website of R, which is called [CRAN](https://cran.r-project.org/) (the Comprehensive R Archive Network).
@@ -37,12 +38,15 @@ Click `Download R for (Mac) OS X`, then download the latest `pkg` file. Install 
 
 
 ### Install Rstudio
-Now you've already had R on your laptop. However, the default R editor and environment are hard to use. To enjoy a more user-friendly GUI (Graphic User Interface) of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.
+Now you've already had R on your laptop. However, the default R editor is hard to use. To enjoy a more user-friendly editor of R, let's install Rstudio, the most popular and powerful IDE (Integrated Development Environment) of R. Go to the official website of [Rstudio](https://rstudio.com/products/rstudio/download/#download). usually, it will automatically detect your OS and choose the suitable installation package for you. If not, scroll down the page and choose the file accordingly.
 
 ![Fig4: Download Rstudio](images/installRstudio.png){width=500px}
 
-## Get started with Rstudio
-Rstudio is the most popular Integrated Development Environment (IDE) of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. A typical Rstudio interface looks like this:
+## Introduction to Rstudio
+The goal of this part is to learn how to write codes, organize files and read outputs from Rstudio. As mentioned before, Rstudio is the most popular IDE of R. The so called IDE is a software application which provides with comprehensive utilities to users for computing and programming. Rstudio contains a lot of features especially designed for data scientist. 
+
+
+A typical Rstudio interface looks like this:
 
 ![An exmaple of Rstudio User Interface](images/Rstudio interface.png){width=600px}
 
@@ -133,16 +137,13 @@ If you need any help, click the `Help` tab and search for help documentation in 
 
 
 
-
-
-
 ## Basic Command
 
 ### Variables
 As future data scientist, the first thing we need to do is to store data into an object. Such object is usually called *variable* in programming. In R, a variable not only stores data, but also keeps statistical models, predictions, and basically any R output. It's simple to create a variable: just come up with a unique name then add a value to it by using `<-` or `=`. (variable name can be a combination of `character`, `number`, `.` and `_`, however, it should start with a character).
 ```{r }
 year <- 2020
-program <- "LA.BSET"
+program <- "LAs.BSET"
 ```
 
 We create 2 types of variables: one is numeric labeled with name `year` and the other is a character whose name is `program`. In R, any value quoted by `"` or `'` is treated as character. Now try to create some variables and display them in the console.
@@ -246,7 +247,7 @@ df
 
 ### Selecting rows and columns
 
-We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data framee `df` with the code `df[1,2]` which will select row 1 and column 2 of the data frame.
+We can choose to only use certain portions of a data frame by selecting rows and columns. Using matrix notation, you can subset the data frame `df` with the code `df[1,2]` which will select row 1 and column 2 of the data frame.
 
 Print out the third row of the price column:
 ```{r df_create2, include=FALSE}
@@ -338,7 +339,7 @@ df
 
 ### Quiz
 
-```{r quiz}
+```{r quiz, echo=FALSE}
 quiz(
   question("Choose all that apply. How can I select the second column (named bp) of a data frame?",
     answer("df$bp", correct=T),
@@ -413,6 +414,8 @@ str(mtcars)
 ```
 
 Why does it matter? It's important to have variables in their correct form when using modelling commands, and it also gives a lot of extra options when creating graphs.
+
+
 ## Plot
 In this section, we will use the `mtcars` data set to show how to plot in R. Let's read in the data and recode the categorical variables. This data set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).  
 ```{r}
@@ -426,7 +429,6 @@ mtcars <- within(mtcars, {
 })
 ```
 
-## Plot
 ### 1. Scatter plot
 A scatter plot can reveal the patterns of correlation between two variables. For `mtcars`, `hp` represents the horsepower of the automobiles and `qsec` is the 1/4 mile time. We now use a scatter plot to explore the relationship between these two variables.
 ```{r}
@@ -530,7 +532,7 @@ install.packages("rmarkdown")
 ```
 
 ### Step 1: Create a new R markdown file
-To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which coulb be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.
+To begin with, create a new R markdown file by click the button in the red circle. It prompts a wizard for template. By default, the file rendered by R markdown is an html file which could be viewed in a web browser. You can also select format of output in pdf or Word document. However, there might be some format issue of the R codes along with their outputs in pdf or Word. In practice, people usually enjoy the best reading experience in the html output.
 
 ![](images/step1.png){width=500px}
 
