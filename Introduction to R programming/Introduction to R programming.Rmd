@@ -88,7 +88,7 @@ Now we can find the data we needed for work, how do we load the data into R for 
 
 ![](images/error.png){width=300px}
 
-Why? Because the data is located in a different folder which is not my working directory and R cannot 'see' this file. To fix the error, we can either specify the absolute path to tell R where to find the file we want:
+Why? Because the data is located in a different folder which is not our current working directory and R cannot 'see' this file. To fix the error, we can either specify the `absolute path` (right click the file/folder and choose property, then you may find the absolute path) to tell R where to find the file we want:
 ```{r, eval=FALSE}
 grad <- read.csv("~/Downloads/binary.csv")
 ```
@@ -143,7 +143,7 @@ If you need any help, click the `Help` tab and search for help documentation in 
 As future data scientist, the first thing we need to do is to store data into an object. Such object is usually called *variable* in programming. In R, a variable not only stores data, but also keeps statistical models, predictions, and basically any R output. It's simple to create a variable: just come up with a unique name then add a value to it by using `<-` or `=`. (variable name can be a combination of `character`, `number`, `.` and `_`, however, it should start with a character).
 ```{r }
 year <- 2020
-program <- "LAs.BSET"
+program <- "LAs.BEST"
 ```
 
 We create 2 types of variables: one is numeric labeled with name `year` and the other is a character whose name is `program`. In R, any value quoted by `"` or `'` is treated as character. Now try to create some variables and display them in the console.
