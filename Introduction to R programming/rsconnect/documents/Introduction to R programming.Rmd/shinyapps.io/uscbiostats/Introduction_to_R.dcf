@@ -1,0 +1,13 @@
+name: Introduction_to_R
+title: Introduction_to_R
+username:
+account: uscbiostats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3416547
+bundleId: 4678597
+url: https://uscbiostats.shinyapps.io/Introduction_to_R/
+when: 1622827862.00559
+lastSyncTime: 1622827862.00561
+asMultiple: FALSE
+asStatic: FALSE

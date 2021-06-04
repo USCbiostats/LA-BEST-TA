@@ -10,8 +10,11 @@ library(learnr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+[![](https://raw.githubusercontent.com/USCbiostats/badges/master/tommy-lasbest-badge.svg)](https://preventivemedicine.usc.edu/education/summer-programs/lasbest/)
 
 ## Welcome
+
+
 Welcome to the LA's BEST summer camp! In this lab, we will learn R, one of the most popular programming languages in the world of data. 
 
 R is a high-level computer language developed by Ross Ihaka and Robert Gentleman in 1993. It provides a comprehensive tool kits of statistical analysis and a variety of communicating techniques to present and share the work (graphics of publish quality, LaTeX-style documentations, interactive shiny apps, ...). The most exciting feature of R is a user-friendly library management system. You can extend R functionality by install *packages* into your library (which will be covered later). With the help of *packages*, you can not only conduct the most cutting-edge data analysis, but also create animation plots, write books and build your own personal website.
